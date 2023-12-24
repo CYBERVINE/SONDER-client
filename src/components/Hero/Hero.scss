@@ -1,26 +1,138 @@
-.hero__image{
-  background-image: url("../..//src/assets/images/hero-image.png");
-  object-fit: contain;
-  object-position: center;
-  height: 13rem;
-  width: 100vw;
+.hero{
+  &__image{
+    background-image: url("../..//src/assets/images/hero-image.png");
+    object-fit: contain;
+    object-position: center;
+    height: 13rem;
+    width: 100vw;
+    position: relative;
+    margin: 1rem 0;
+  }
+  
+  &__text{
+    position: absolute;
+    font-size: 1.5rem;
+    top: 20%;
+    left: 5%
+  }
+}
+
+.header{
+
+  &__one{
+    animation: fade-in-one 2s 
+  }
+  &__two{
+    animation: fade-in-two 4s 
+
+  }
+  &__three{
+    animation: fade-in-three 6s
+  }
+}
+@keyframes fade-in-one {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fade-in-two {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fade-in-three {
+  0%{
+    opacity: 0;
+  }
+  80%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 .enterance{
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 1rem;
 
   &__card{
     border: 1px solid black;
     height: 8rem;
     width: 8rem;
-    padding: 1rem
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  &__anonymous{
+    background-color: black;
+    color: white
   }
 
   &__known{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: beige;
 
   }
 }
+
+.ellpses{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0.75rem
+
+}
+
+.ellpsis{
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: grey;
+  border-radius: 1rem;
+  opacity: 0;
+
+  &__one{
+    animation: blink 1400ms 7000ms ease-in-out infinite;
+  }
+  &__two{
+    animation: blink 1400ms 7333ms ease-in-out infinite;
+  }
+  &__three{
+    animation: blink 1400ms 7666ms ease-in-out infinite;
+  }
+}
+
+@keyframes blink {
+  0%{
+    opacity: 0;
+    scale: (.8);
+  }
+  20%{
+    opacity: .9;
+    scale: (1);
+  }
+  60%{
+    opacity: 0;
+    scale: (1);
+  }
+  100%{
+    opacity: 0;
+    scale: (1);
+  }
+}
+
