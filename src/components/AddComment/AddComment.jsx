@@ -1,10 +1,13 @@
 import './AddComment.scss'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 const URL = "http://localhost:8080"
 
 
 function CommentsModal({giveCoords, coords}){
+
+  const navigate = useNavigate()
 
   useEffect(()=>{
     giveCoords()
@@ -25,6 +28,7 @@ function CommentsModal({giveCoords, coords}){
       console.error(err)
     }
     
+    navigate('/map')
   }
   
   return(

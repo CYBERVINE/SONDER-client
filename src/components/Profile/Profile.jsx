@@ -1,11 +1,17 @@
 import './Profile.scss'
+import { Link } from 'react-router-dom'
 
 function Profile ({giveCoords, coords}) {  
+    
     return(
         <main className="profile">
             <h1>Profile</h1>
-            <p>Your latitude is {coords.latitude} and your longitude is {coords.longitude}</p>
-            <button onClick={giveCoords}>givelatlong</button>   
+             <h1>get your coords</h1>  
+             
+             <p>Your latitude is {coords.lat} and your longitude is {coords.lng}</p>
+            
+            <button onClick={()=>giveCoords()}>givelatlong</button>
+            <Link to={'/'}>landingpage</Link>
         </main>
     )
 }
