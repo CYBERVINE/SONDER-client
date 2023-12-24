@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import './Map.scss'
 import { Link } from "react-router-dom";
@@ -25,6 +26,13 @@ function Map () {
     }
 
     useEffect(()=>{getPosts()},[])
+
+    const customIcon = new L.Icon({
+      iconUrl: '../../src/assets/images/yellow.png',
+      iconSize: [18, 18], 
+      iconAnchor: [16, 32], 
+      popupAnchor: [0, -32], 
+    });
   
     return ( 
       <>
@@ -43,11 +51,13 @@ function Map () {
 
             {posts.map((comment,index) => {
               return (
-                <Marker key={index} position={[comment.lat, comment.lng]}>
-                    <Popup>
-                        <Link to={'/profile'}>
-                          {comment.comment}
-                        </Link>
+                <Marker key={index} position={[comment.lat, comment.lng]} icon={customIcon}>
+                    <Popup className="map__popup">
+                        {comment.comment}
+                        <section className="map__pop--links">
+                          <div>BACK TO REALITY</div>
+                          <Link to={'/profile'}>FOLOW THAT THOUGHT</Link>
+                        </section>
                     </Popup>
                 </Marker>
               )
