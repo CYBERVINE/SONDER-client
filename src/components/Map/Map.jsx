@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import './Map.scss'
 import { Link } from "react-router-dom";
@@ -32,10 +32,13 @@ function Map () {
         <button className="map__post" id="test" onClick={toggleModal}>togglemodal</button>
       </div>
       <section className={mapStyle}>
-        <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} ref={mapRef} style={{height: "95vh", width: "100vw"}}>
+        <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} ref={mapRef} 
+        attributionControl={false}  style={{height: "95vh", width: "100vw"}}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url='https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+            maxZoom= {20}
+            subdomains={['mt1','mt2','mt3']}
             />
 
             {posts.map((comment,index) => {
@@ -53,8 +56,8 @@ function Map () {
         </MapContainer>
       </section>
       <div className="map__footer">
-
       <Link to={'/addcomment'} className="map__post" onClick={toggleModal}>Map Your Mind</Link>
+
       </div>
       </>
     );

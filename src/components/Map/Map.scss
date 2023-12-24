@@ -10,14 +10,15 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-color: lightsalmon;
   }
 
   &__post{
     background-color: bisque;
     border: 0;
-    padding: 0 1rem;
+    padding: 0.35rem 1rem;
     font-weight: bold;
+    border-radius: 0.5rem;
   }
 }
 
