@@ -1,0 +1,63 @@
+.add-comment{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../../assets/images/river.jpg');
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    background-color: coral;
+    opacity: 0.85;
+    padding: 1rem;
+  }
+  
+  &__label{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+  }
+  
+  &__comment{
+    margin: 1rem 0;
+    min-width: 10rem;
+    border: none;
+    outline: none;
+    &:focus{
+      border: 2px solid gold;
+
+    }
+  }
+
+  &__submit{
+    border: 3px solid blueviolet;
+    border-radius: 0.5rem;
+    background-color: blueviolet;
+    color: white;
+    padding: 0.25rem 0.5rem;
+
+    &:hover{
+      border: 3px solid gold;
+      background-color: purple;
+    }
+  }
+
+  &__set-background{
+    background-color: black;
+    border: none;
+    border-radius: 0.25rem;
+    color: azure;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+    margin: 0.25rem;
+
+    &:hover{
+      color: gold;
+    }
+  }
+
+}

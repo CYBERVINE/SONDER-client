@@ -36,12 +36,12 @@ function Map () {
   
     return ( 
       <>
-      <div className="modal">
+      {/* <div className="modal">
         <button className="map__post" id="test" onClick={toggleModal}>togglemodal</button>
-      </div>
+      </div> */}
       <section className={mapStyle}>
         <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} ref={mapRef} 
-        attributionControl={false}  style={{height: "95vh", width: "100vw"}}>
+        attributionControl={false}  style={{height: "100vh", width: "100vw"}}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url='https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
@@ -65,10 +65,9 @@ function Map () {
 
         </MapContainer>
       </section>
-      <div className="map__footer">
-      <Link to={'/addcomment'} className="map__post" onClick={toggleModal}>Map Your Mind</Link>
-
-      </div>
+        <div className="map__post">
+        <Link className="map__link" to={'/addcomment'}>Map Your Mind</Link>
+        </div>
       </>
     );
   };

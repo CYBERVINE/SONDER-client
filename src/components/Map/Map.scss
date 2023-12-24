@@ -1,9 +1,6 @@
 .map{
   position: relative;
-
-  &--modal-active{
-    z-index: -1;
-  }
+  
 
   &__footer{
     height: 5vh;
@@ -14,11 +11,24 @@
   }
 
   &__post{
-    background-color: bisque;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 1.35rem;
+    height: 5rem;
+    width: 5rem;
     border: 0;
-    padding: 0.35rem 1rem;
+    border-radius: 50%;
+    z-index: 1000;
+    position: absolute;
+    bottom: 0;
+    margin: 1rem;
+  }
+  
+  &__link{
     font-weight: bold;
-    border-radius: 0.5rem;
+    color: bisque;
   }
 
   &__popup{
@@ -29,25 +39,6 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   
-  }
-}
-
-.modal{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background-color: grey;
-  opacity: 0.5;
-  height: 95vh;
-  width: 100vw;
-
-  &__card{
-    height: 4rem;
-    width: 4rem;
-    background-color: black;
-    opacity: 1;
   }
 }
 
