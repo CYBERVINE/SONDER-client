@@ -1,0 +1,26 @@
+.hero__image{
+  background-image: url("../..//src/assets/images/hero-image.png");
+  object-fit: contain;
+  object-position: center;
+  height: 13rem;
+  width: 100vw;
+}
+
+.enterance{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &__card{
+    border: 1px solid black;
+    height: 8rem;
+    width: 8rem;
+    padding: 1rem
+  }
+
+  &__known{
+    display: flex;
+    flex-direction: column;
+
+  }
+}
