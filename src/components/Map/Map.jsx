@@ -16,7 +16,6 @@ function Map () {
 
   function toggleModal () {
     mapStyle === "map" ? setMapStyle("map map--modal-active") : setMapStyle("map")
-
   }
 
     async function getPosts () {
@@ -24,14 +23,6 @@ function Map () {
       console.log(data)
       setPosts(data)
     }
-
-    const comments = [
-      { lat: 49.2827, lng: -123.1207, comment: "yes" }, // Vancouver Art Gallery
-      { lat: 49.2840, lng: -123.1171, comment: "no"  }, // Robson Square
-      { lat: 49.2819, lng: -123.1208, comment: "wow"  }, // Pacific Centre Mall
-      { lat: 49.2818, lng: -123.1096, comment: "i"  }, // Canada Place
-      { lat: 49.2777, lng: -123.1216, comment: "smart"  }  // BC Place Stadium
-    ]
 
     useEffect(()=>{getPosts()},[])
   
