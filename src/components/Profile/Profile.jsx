@@ -6,7 +6,7 @@ import "leaflet/dist/leaflet.css";
 function Profile () {  
     const mapRef = useRef(null);
     const profile = {
-        name: "Suzy Que"
+        name: "Beth Vanderhoof"
     }
 
     const promos = [1,2,3,4,5]
@@ -21,7 +21,7 @@ function Profile () {
                     <h2 className='profile__name'>{profile.name}</h2>
                 </div>
                 <div className='profile__map'>
-                    <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} attributionControl={false} ref={mapRef} style={{height: "30vh", width: "100%"}}>
+                    <MapContainer className="profile_leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} attributionControl={false} ref={mapRef} style={{height: "30vh", width: "100%"}}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url='https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
@@ -35,12 +35,15 @@ function Profile () {
                         return <li className='profile__entry' key={promo}>promo item</li>
                     })}
                 </ul>
-                <form className='profile__form' action="submit">
+                {/* <form className='profile__form' action="submit">
                     <label htmlFor="promo">What's your next promo?</label>
                     <input type="text" />
                     <button type="submit">Post your Promo</button>
-                </form>
-                <Link to={'/map'}>Back To Reality</Link>
+                </form> */}
+                <div className='profile__return-container'>
+
+                <Link className='profile__return' to={'/map'}>Back To Reality</Link>
+                </div>
             </main>
         </section>
     )

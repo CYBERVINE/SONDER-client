@@ -27,7 +27,7 @@
 
   }
   &__three{
-    animation: fade-in-three 6s
+    animation: fade-in-three 5500ms
   }
 }
 @keyframes fade-in-one {
@@ -107,13 +107,13 @@
   opacity: 0;
 
   &__one{
-    animation: blink 1400ms 7000ms ease-in-out infinite;
+    animation: blink 1400ms 5500ms ease-in-out infinite;
   }
   &__two{
-    animation: blink 1400ms 7333ms ease-in-out infinite;
+    animation: blink 1400ms 5833ms ease-in-out infinite;
   }
   &__three{
-    animation: blink 1400ms 7666ms ease-in-out infinite;
+    animation: blink 1400ms 6166ms ease-in-out infinite;
   }
 }
 
