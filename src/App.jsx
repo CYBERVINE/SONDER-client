@@ -16,8 +16,8 @@ function App() {
     navigator.geolocation.getCurrentPosition(success)
     function success (pos){
       setCoords({
-          "latitude" : pos.coords.latitude,
-          "longitude" : pos.coords.longitude
+          lat : pos.coords.latitude,
+          lng: pos.coords.longitude
       })
     }
   }
