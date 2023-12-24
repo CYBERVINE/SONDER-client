@@ -1,4 +1,44 @@
 .map{
   position: relative;
+  
+
+  &__footer{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: lightsalmon;
+  }
+
+  &__post{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 1.35rem;
+    height: 5rem;
+    width: 5rem;
+    border: 0;
+    border-radius: 50%;
+    z-index: 1000;
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+  
+  &__link{
+    font-weight: bold;
+    color: bisque;
+  }
+
+  &__popup{
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  }
 }
 
