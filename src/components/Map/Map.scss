@@ -1,4 +1,41 @@
 .map{
   position: relative;
+
+  &--modal-active{
+    z-index: -1;
+  }
+
+  &__footer{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+  }
+
+  &__post{
+    background-color: bisque;
+    border: 0;
+    padding: 0 1rem;
+    font-weight: bold;
+  }
 }
 
+.modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: grey;
+  opacity: 0.5;
+  height: 95vh;
+  width: 100vw;
+
+  &__card{
+    height: 4rem;
+    width: 4rem;
+    background-color: black;
+    opacity: 1;
+  }
+}
