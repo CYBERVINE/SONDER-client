@@ -12,7 +12,7 @@ function Hero () {
     <h1 className="header header__three">Map your inner monolouge</h1>
     <section className="enterance">
       <Link to={'/addcomment'} className="enterance__anonymous enterance__card">
-        <p >Quick Post Anonymously</p>
+        <p>Post Anonymously</p>
         <p>Keep it local</p>
         <div className="ellpses">
           <div className="ellpsis ellpsis__one"></div>

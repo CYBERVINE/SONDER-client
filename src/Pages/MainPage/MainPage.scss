@@ -1,0 +1,41 @@
+.main-page{
+  position: relative;
+
+  &--active{
+    z-index: 1000;
+  }
+}
+
+.map-div{
+  position: absolute;
+  &--toggle{
+    animation: map 1s
+  }
+}
+
+@keyframes map {
+  0%{
+    transform: scale(1);
+  }
+  
+  100%{
+    transform: scale(.4);
+  }
+}
+
+.profile-div{
+  position: absolute;
+  &--toggle{
+    animation: profile 1s
+  }
+}
+
+@keyframes profile {
+  0%{
+    transform: scale(1);
+  }
+  
+  100%{
+    transform: scale(.4);
+  }
+}

@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-function Profile () {  
+function Profile ({toggleMain}) {  
     const mapRef = useRef(null);
     const profile = {
         name: "Beth Vanderhoof"
@@ -42,7 +42,8 @@ function Profile () {
                 </form> */}
                 <div className='profile__return-container'>
 
-                <Link className='profile__return' to={'/map'}>Back To Reality</Link>
+                {/* <Link className='profile__return' to={'/map'}>Back To Reality</Link> */}
+                <div className='profile__return' onClick={toggleMain}>Back To Reality</div>
                 </div>
             </main>
         </section>

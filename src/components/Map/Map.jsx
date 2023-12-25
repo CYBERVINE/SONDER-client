@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 
 
-function Map () {
+function Map ({toggleMain}) {
+  console.log(toggleMain)
   const mapRef = useRef(null);
   const latitude = 49.249814;
   const longitude = -123.1217199;
@@ -56,7 +57,8 @@ function Map () {
                         {comment.comment}
                         <section className="map__pop--links">
                           <div>BACK TO REALITY</div>
-                          <Link to={'/profile'}>FOLOW THAT THOUGHT</Link>
+                          <button onClick={toggleMain}>toggle</button>
+                          {/* <Link to={'/profile'}>FOLOW THAT THOUGHT</Link> */}
                         </section>
                     </Popup>
                 </Marker>
