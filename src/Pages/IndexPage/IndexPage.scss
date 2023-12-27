@@ -12,6 +12,9 @@
   }
   
   &__video{
+    opacity: 0;
+    animation: hero-in 3s ease-in-out;
+    animation-fill-mode: forwards;
     position: absolute;
     top: 0;
     left: 0;
@@ -24,5 +27,11 @@
     @include tablet{
       border-radius: 10%;
     }
+  }
+}
+
+@keyframes hero-in {
+  100%{
+    opacity: 1;
   }
 }

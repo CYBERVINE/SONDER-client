@@ -21,7 +21,10 @@
   &__gif{
     border-radius: 100%;
     border: none;
-    opacity: 0.8;
+    opacity: 0;
+    animation: fade-in-planet 2s;
+    animation-delay: 800ms;
+    animation-fill-mode: forwards;
 
     &--container{
       display: flex;
@@ -47,21 +50,32 @@
   @include desktop {
     font-size: 3rem;
   }
+  opacity: 0;
 
   &__one{
-    opacity: 0;
     animation: fade-in-one 2s;
     animation-delay: 550ms;
     animation-fill-mode: forwards;
   }
+
   &__two{
     animation: fade-in-two 4s;
-    animation-delay: 550ms;
+    animation-delay: 600ms;
+    animation-fill-mode: forwards;
 
   }
   &__three{
     animation: fade-in-three 5s;
-    animation-delay: 550ms;
+    animation-delay: 600ms;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes fade-in-planet {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0.6;
   }
 }
 @keyframes fade-in-one {

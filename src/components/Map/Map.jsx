@@ -15,8 +15,8 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, map
 
   const slide = mapMove !== "" ? "map__post--slide" : ""
 
-    if(!params.id) { useEffect(()=>getPosts(),[]),
-                     useEffect(()=>giveCoords(),[])
+    if(!params.id) { useEffect(()=>{getPosts()},[]),
+                     useEffect(()=>{giveCoords()},[])
         }
 
     const customIcon = new L.Icon({
