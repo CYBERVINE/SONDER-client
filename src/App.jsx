@@ -32,8 +32,8 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/profile' element={<ProfilePage giveCoords={giveCoords} coords={coords}/>}/>
-        <Route path='/map' element={<MainPage/>}/>
-        <Route path='/addcomment' element={<AddComment giveCoords={giveCoords} coords={coords}/>}/>
+        <Route path='/map' element={<MainPage giveCoords={giveCoords} coords={coords}/>}/>
+        {/* <Route path='/addcomment' element={<AddComment giveCoords={giveCoords} coords={coords}/>}/> */}
       </Routes>
     </BrowserRouter>
   )

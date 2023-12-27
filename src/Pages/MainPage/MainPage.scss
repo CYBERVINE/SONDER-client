@@ -1,14 +1,33 @@
 .main-page{
+  // background-image: url('../../assets/images/star.webp');
   position: relative;
+  height: 100vw;
+  width: 100vw
 
+  // &--active{
+  //   z-index: 1000;
+  // }
+}
+
+.modal-div{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 0.8;
+  
   &--active{
+    display: flex;
     z-index: 1000;
   }
 }
 
 .map-div{
   position: absolute;
-  &--toggle{
+  &--out{
     animation: map 1s
   }
 }
@@ -19,23 +38,7 @@
   }
   
   100%{
-    transform: scale(.4);
-  }
-}
-
-.profile-div{
-  position: absolute;
-  &--toggle{
-    animation: profile 1s
-  }
-}
-
-@keyframes profile {
-  0%{
-    transform: scale(1);
-  }
-  
-  100%{
-    transform: scale(.4);
+    transform: scale(.5);
+    width: 80vw;
   }
 }

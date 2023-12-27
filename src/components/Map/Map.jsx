@@ -3,12 +3,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import './Map.scss'
-import { Link } from "react-router-dom";
 import axios from "axios"
 
 
-function Map ({toggleMain}) {
-  console.log(toggleMain)
+function Map ({toggleMain, toggleModal}) {
+  console.log(toggleModal)
   const mapRef = useRef(null);
   const latitude = 49.249814;
   const longitude = -123.1217199;
@@ -16,9 +15,9 @@ function Map ({toggleMain}) {
   const [posts, setPosts] = useState([])
   const [mapStyle, setMapStyle] = useState("map")
 
-  function toggleModal () {
-    mapStyle === "map" ? setMapStyle("map map--modal-active") : setMapStyle("map")
-  }
+  // function toggleModal () {
+  //   mapStyle === "map" ? setMapStyle("map map--modal-active") : setMapStyle("map")
+  // }
 
     async function getPosts () {
       const {data} = await axios.get(`${URL}/posts`)
@@ -57,7 +56,7 @@ function Map ({toggleMain}) {
                         {comment.comment}
                         <section className="map__pop--links">
                           <div>BACK TO REALITY</div>
-                          <button onClick={toggleMain}>toggle</button>
+                          <button onClick={toggleMain}>FOLLOW THAT THOUGHT!</button>
                           {/* <Link to={'/profile'}>FOLOW THAT THOUGHT</Link> */}
                         </section>
                     </Popup>
@@ -67,8 +66,11 @@ function Map ({toggleMain}) {
 
         </MapContainer>
       </section>
-        <div className="map__post">
-        <Link className="map__link" to={'/addcomment'}>Map Your Mind</Link>
+        <div onClick={toggleModal} className="map__post">
+          <p>
+          Map it
+          </p>
+        {/* <Link className="map__link" to={'/addcomment'}>Map Your Mind</Link> */}
         </div>
       </>
     );
