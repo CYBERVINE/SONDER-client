@@ -1,10 +1,14 @@
 import Map from "../../components/Map/Map"
 import AddComment from '../../components/AddComment/AddComment'
-import './MainPage.scss'
+import './MapPage.scss'
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
+import axios from "axios"
 
-function MainPage ({giveCoords, coords}) {
+function MapPage ({giveCoords, coords}) {
+
+  const URL = "http://localhost:8080"
+  const [posts, setPosts] = useState([])
   const [modalActive, setModalActive] = useState("")
   const [mapMove, setMapMove] = useState("")
   const navigate = useNavigate()
@@ -13,12 +17,16 @@ function MainPage ({giveCoords, coords}) {
     setMapMove("map-div--out")
     setTimeout(() => {
       navigate("/profile/4")
-    }, 1000);
+    }, 1400);
   }
 
   function toggleModal () {
     modalActive === "" ? setModalActive("modal-div--active") : setModalActive("")
-    console.log("go")
+  }
+
+  async function getPosts () {
+    const {data} = await axios.get(`${URL}/posts`)
+    setPosts(data)
   }
 
   useEffect(()=>toggleModal,[])
@@ -26,13 +34,13 @@ function MainPage ({giveCoords, coords}) {
   return (
     <section className="main-page">
       <div className= {`modal-div ${modalActive}`} >
-        <AddComment  giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
+        <AddComment  getPosts={getPosts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
       </div>
       <div className={`map-div ${mapMove}`}>
-        <Map toggleMain={toggleMain} toggleModal={toggleModal}/>
+        <Map getPosts={getPosts} posts={posts} giveCoords={giveCoords}  coords={coords} toggleMain={toggleMain} toggleModal={toggleModal} mapMove={mapMove}/>
       </div>
     </section>
   )
 }
 
-export default MainPage
+export default MapPage

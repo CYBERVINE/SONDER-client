@@ -24,19 +24,17 @@
 .map-div{
   position: absolute;
   &--out{
-    animation: map 1000ms ease-in
+    animation: map 1400ms ease-in-out
   }
 }
 
 @keyframes map {
   0%{
     transform: scale(1);
-    height: 100vh;
   }
 
   100%{
-    transform: scale(.5) translateX(-5rem);
-    height: 20vh;
+    transform: scale(.5) translateY(-35vh) translateX(-10vw);
     opacity: 0.8;
   }
 }

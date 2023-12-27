@@ -1,31 +1,32 @@
 import './AddComment.scss'
-import { useEffect } from 'react'
 import axios from "axios"
 const URL = "http://localhost:8080"
 
 
-function CommentsModal({giveCoords, coords, toggleModal}){
+function CommentsModal({getPosts, coords, toggleModal}){
 
-  useEffect(()=>{
-    giveCoords()
-  },[])
 
   function handleSubmit (e) {
     e.preventDefault()
-
-    try{
-      const {data} = axios.post(`${URL}/posts`,
-      {
-        lat: coords.lat,
-        lng: coords.lng,
-        comment: e.target.comment.value
-      })
-    } catch (err) {
-      console.error(err)
+    async function post () {
+      try{
+        const {data} = await axios.post(`${URL}/posts`,
+        {
+          lat: coords.lat,
+          lng: coords.lng,
+          comment: e.target.comment.value
+        })
+        console.log(data)
+      } catch (err) {
+        console.error(err)
+      }
     }
-    e.target.comment.value = ''
+    post()
+    getPosts()
     toggleModal()
+    e.target.comment.value = ''
   }
+  console.log(coords)
   
   return(
     <section >
@@ -34,7 +35,6 @@ function CommentsModal({giveCoords, coords, toggleModal}){
           <textarea className='add-comment__comment' type="text" name="comment"rows="7"/>
           <button className='add-comment__submit' type="submit">Map your mind</button>
         </form>
-        {/* <button className='add-comment__set-background'>new background</button> */}
     </section>
   )
 }

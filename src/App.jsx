@@ -7,8 +7,7 @@ import IndexPage from './Pages/IndexPage/IndexPage'
 import SignupPage from './Pages/SignupPage/SignupPage'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
-import MainPage from './Pages/MainPage/MainPage'
-import AddComment from './components/AddComment/AddComment'
+import MapPage from './Pages/MapPage/MapPage'
 
 
 function App() {
@@ -25,15 +24,15 @@ function App() {
     }
   }
 
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<IndexPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/signup' element={<SignupPage/>}/>
-        <Route path='/profile/:id' element={<ProfilePage giveCoords={giveCoords} coords={coords}/>}/>
-        <Route path='/map' element={<MainPage giveCoords={giveCoords} coords={coords}/>}/>
-        {/* <Route path='/addcomment' element={<AddComment giveCoords={giveCoords} coords={coords}/>}/> */}
+        <Route path='/profile/:id' element={<ProfilePage  giveCoords={giveCoords} coords={coords}/>}/>
+        <Route path='/map' element={<MapPage giveCoords={giveCoords} coords={coords}/>}/>
       </Routes>
     </BrowserRouter>
   )
