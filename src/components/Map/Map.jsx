@@ -13,24 +13,9 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, map
   const latitude = 49.249814;
   const longitude = -123.1217199;
 
-
-  // const [latitude, setLatitude] = useState("1")
-  // const [longitude, setlongitude] = useState("1")
-  // const [renderMap, setRenderMap] = useState(false)
-
-  // function setLatLong() {
-  //   giveCoords()
-  //   setLatitude(coords.lat)
-  //   setlongitude(coords.lng)
-  //   setRenderMap(true)
-  // }
-
-
-
-
   const slide = mapMove !== "" ? "map__post--slide" : ""
 
-    if(!params.id) { useEffect(()=>{getPosts()},[])
+    if(!params.id) { useEffect(()=>getPosts(),[]),
                      useEffect(()=>giveCoords(),[])
         }
 

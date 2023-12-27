@@ -1,10 +1,12 @@
+@import '../../styles/partials.scss/breakpoints';
+
 .hero{
   &__image{
     background-image: url("../..//src/assets/images/hero-image.png");
     object-fit: contain;
     object-position: center;
     height: 13rem;
-    width: 100vw;
+    width: 100%;
     position: relative;
     margin: 1rem 0;
   }
@@ -15,19 +17,51 @@
     top: 20%;
     left: 5%
   }
+
+  &__gif{
+    border-radius: 100%;
+    border: none;
+    opacity: 0.8;
+
+    &--container{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      @include tablet{
+        margin: 3rem 0;
+      }
+    }
+  }
 }
 
 .header{
 
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  @include desktop{
+    margin: 3rem 0;
+  }
+
+  @include desktop {
+    font-size: 3rem;
+  }
+
   &__one{
-    animation: fade-in-one 2s 
+    opacity: 0;
+    animation: fade-in-one 2s;
+    animation-delay: 550ms;
+    animation-fill-mode: forwards;
   }
   &__two{
-    animation: fade-in-two 4s 
+    animation: fade-in-two 4s;
+    animation-delay: 550ms;
 
   }
   &__three{
-    animation: fade-in-three 5500ms
+    animation: fade-in-three 5s;
+    animation-delay: 550ms;
   }
 }
 @keyframes fade-in-one {
@@ -64,20 +98,37 @@
 .enterance{
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   align-items: center;
   padding: 1rem;
 
-  &__card{
-    border: 1px solid black;
-    height: 8rem;
-    width: 8rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
+  @include tablet {
+    flex-direction: row;
   }
 
+  @include desktop {
+    padding: 0 20vw;
+  }
+
+  &__card{
+    border: 1px solid black;
+    height: 10rem;
+    width: 15rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+
+    @include desktop {
+      height: 15rem;
+      width: 20rem;
+      padding: 2rem;
+      margin: 4rem;
+    }
+    
+  }
   &__anonymous{
     background-color: black;
-    color: white
+    color: white;
   }
 
   &__known{
@@ -91,7 +142,7 @@
 }
 
 .ellpses{
-  margin-top: 1rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -107,13 +158,13 @@
   opacity: 0;
 
   &__one{
-    animation: blink 1400ms 5500ms ease-in-out infinite;
+    animation: blink 1400ms 6000ms ease-in-out infinite;
   }
   &__two{
-    animation: blink 1400ms 5833ms ease-in-out infinite;
+    animation: blink 1400ms 6333ms ease-in-out infinite;
   }
   &__three{
-    animation: blink 1400ms 6166ms ease-in-out infinite;
+    animation: blink 1400ms 6666ms ease-in-out infinite;
   }
 }
 
