@@ -17,11 +17,11 @@
   0%{
     opacity: 0.8;
     scale: .45;
-    transform: translateY(-20rem) translateX(-10rem);
+    transform: translateY(-50vh) translateX(-10vw);
   }
   
   25%{
-    transform: translateY(-35rem)translateX(-15rem);
+    transform: translateY(-70vh)translateX(-15vw);
     z-index: 1000;
   }
   
@@ -29,7 +29,7 @@
     z-index: -1000;
   }
   60%{
-    transform:translateY(-10rem) translateX(-12rem);
+    transform:translateY(-10vh) translateX(-12vw);
   }
   100%{
     opacity: 0.6;
