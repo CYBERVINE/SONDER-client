@@ -1,5 +1,6 @@
 .wrapper{
   padding: 1rem;
+  width: 100vw;
 }
 
 .profile{
@@ -7,6 +8,10 @@
   width: 100%;
   border-radius: 1rem;
   background: linear-gradient( to bottom, #b0d8b0, #EEF4ED) ;
+
+  &--fade{
+    animation: fade 400ms;
+  }
   
   &__banner{
     display: flex;
@@ -65,3 +70,10 @@
   }
 }
 
+@keyframes fade {
+  100%{
+    scale: 1.2;
+    opacity: 0.1;
+  }
+  
+}

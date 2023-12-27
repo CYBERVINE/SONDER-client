@@ -1,0 +1,57 @@
+.profile-page{
+  position: relative;
+
+  &__map{
+    position: absolute;
+    animation: map-out 2.5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  &__profile{
+    position: absolute;
+    animation: profile-in 2.5s ease-in-out;
+  }
+}
+
+@keyframes map-out {
+  0%{
+    opacity: 0.8;
+    scale: .45;
+    transform: translateY(-50vh) translateX(-10vw);
+  }
+  
+  25%{
+    transform: translateY(-70vh)translateX(-15vw);
+    z-index: 1000;
+  }
+  
+  30%{
+    z-index: -1000;
+  }
+  60%{
+    transform:translateY(-10vh) translateX(-12vw);
+  }
+  100%{
+    opacity: 0.6;
+    scale: .2;
+    display: none;
+  }
+}
+
+@keyframes profile-in {
+  0%{
+    opacity: 0;
+    scale: 0.25;
+  }
+  25%{
+    transform: translateX(15rem);
+    scale: 0.65;
+  }
+  40%{
+    opacity: 1;
+  }
+  50%{
+    transform: translateX(0rem);
+    scale: 1;
+  }
+}

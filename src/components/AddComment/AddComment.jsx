@@ -1,19 +1,10 @@
 import './AddComment.scss'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import axios from "axios"
 const URL = "http://localhost:8080"
 
 
-function CommentsModal({giveCoords, coords}){
-
-  const backgrounds = [
-    ""
-  ]
-
-  const [background, setBackgound] = useState()
-
-  const navigate = useNavigate()
+function CommentsModal({giveCoords, coords, toggleModal}){
 
   useEffect(()=>{
     giveCoords()
@@ -21,7 +12,6 @@ function CommentsModal({giveCoords, coords}){
 
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(coords)
 
     try{
       const {data} = axios.post(`${URL}/posts`,
@@ -33,18 +23,18 @@ function CommentsModal({giveCoords, coords}){
     } catch (err) {
       console.error(err)
     }
-    
-    navigate('/map')
+    e.target.comment.value = ''
+    toggleModal()
   }
   
   return(
-    <section className='add-comment'>
+    <section >
         <form className='add-comment__form' action="submit" onSubmit={handleSubmit}>
           <label  className='add-comment__label' htmlFor="comment">Inspired?</label>
-          <textarea className='add-comment__comment' type="text" rows="7"/>
+          <textarea className='add-comment__comment' type="text" name="comment"rows="7"/>
           <button className='add-comment__submit' type="submit">Map your mind</button>
         </form>
-        <button className='add-comment__set-background'>new background</button>
+        {/* <button className='add-comment__set-background'>new background</button> */}
     </section>
   )
 }
