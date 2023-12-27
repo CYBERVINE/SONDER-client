@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
@@ -7,17 +8,14 @@ import axios from "axios"
 
 
 function Map ({toggleMain, toggleModal}) {
-  console.log(toggleModal)
+  const params = useParams()
+
+  console.log(params)
   const mapRef = useRef(null);
   const latitude = 49.249814;
   const longitude = -123.1217199;
   const URL = "http://localhost:8080"
   const [posts, setPosts] = useState([])
-  const [mapStyle, setMapStyle] = useState("map")
-
-  // function toggleModal () {
-  //   mapStyle === "map" ? setMapStyle("map map--modal-active") : setMapStyle("map")
-  // }
 
     async function getPosts () {
       const {data} = await axios.get(`${URL}/posts`)
@@ -36,10 +34,8 @@ function Map ({toggleMain, toggleModal}) {
   
     return ( 
       <>
-      {/* <div className="modal">
-        <button className="map__post" id="test" onClick={toggleModal}>togglemodal</button>
-      </div> */}
-      <section className={mapStyle}>
+
+      <section className="map">
         <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} ref={mapRef} 
         attributionControl={false}  style={{height: "100vh", width: "100vw"}}>
           <TileLayer
@@ -57,7 +53,6 @@ function Map ({toggleMain, toggleModal}) {
                         <section className="map__pop--links">
                           <div>BACK TO REALITY</div>
                           <button onClick={toggleMain}>FOLLOW THAT THOUGHT!</button>
-                          {/* <Link to={'/profile'}>FOLOW THAT THOUGHT</Link> */}
                         </section>
                     </Popup>
                 </Marker>
@@ -66,12 +61,13 @@ function Map ({toggleMain, toggleModal}) {
 
         </MapContainer>
       </section>
-        <div onClick={toggleModal} className="map__post">
+
+        <div onClick={toggleModal} className={!params.id? "map__post" : "map__post map__post--shrink"}>
           <p>
           Map it
           </p>
-        {/* <Link className="map__link" to={'/addcomment'}>Map Your Mind</Link> */}
         </div>
+      
       </>
     );
   };

@@ -1,21 +1,30 @@
 import './Profile.scss'
-import React, { useRef, useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
+import React, { useRef, useState } from "react";
+import { useNavigate } from 'react-router';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-function Profile ({toggleMain}) {  
+function Profile () {  
     const mapRef = useRef(null);
     const profile = {
         name: "Beth Vanderhoof"
     }
 
+    const [profileFade, setprofileFade] = useState("")
+    const navigate = useNavigate()
     const promos = [1,2,3,4,5]
     const latitude = 49.249814;
     const longitude = -123.1217199;
+
+    function backToReality () {
+        setprofileFade("profile--fade")
+        setTimeout(() => {
+            navigate("/map")
+          }, 300);
+    }
     
     return(
         <section className='wrapper'>
-            <main className="profile">
+            <main className={`profile ${profileFade}`}>
                 <div className='profile__banner'>
                     <img className='profile__avatar' src="../src/assets/images/avatar.jpg" alt="" />
                     <h2 className='profile__name'>{profile.name}</h2>
@@ -42,8 +51,7 @@ function Profile ({toggleMain}) {
                 </form> */}
                 <div className='profile__return-container'>
 
-                {/* <Link className='profile__return' to={'/map'}>Back To Reality</Link> */}
-                <div className='profile__return' onClick={toggleMain}>Back To Reality</div>
+                <div className='profile__return' onClick={backToReality}>Back To Reality</div>
                 </div>
             </main>
         </section>
