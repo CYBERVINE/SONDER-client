@@ -10,7 +10,14 @@ function IndexPage () {
       </video>
     <Hero/>
     </section>
-      <div className="index-page__backing"></div>
+      <div className="index-page__backing">
+
+
+        <footer className="index-page__footer">
+        &#169; KEVIN BYRNE
+        </footer>
+
+      </div>
     </>
   )
 }
