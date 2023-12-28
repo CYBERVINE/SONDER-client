@@ -13,6 +13,7 @@ function Profile () {
 
     const [user, setUser] = useState({})
     const [promos, setPromos] = useState([])
+    const [posts, setPosts] = useState([])
 
     const [profileFade, setprofileFade] = useState("")
     const navigate = useNavigate()
@@ -30,9 +31,11 @@ function Profile () {
         try{
             const user = await axios.get(`http://localhost:8080/users/${params.id}`)
             const promos = await axios.get(`http://localhost:8080/promos/${params.id}`)
-            console.log(promos)
+            const posts = await axios.get(`http://localhost:8080/posts/${params.id}`)
+            console.log(posts)
             setUser(user.data)
             setPromos(promos.data)
+            setPosts(posts.data)
         }catch(err){
             console.error(err)
         }
@@ -44,7 +47,7 @@ function Profile () {
         <section className='wrapper'>
             <main className={`profile ${profileFade}`}>
                 <div className='profile__banner'>
-                    <img className='profile__avatar' src="../src/assets/images/avatar.jpg" alt="" />
+                {user.avatar ? <img className='profile__avatar' src={user.avatar} alt="avatar" /> : <img className='profile__avatar' src="../src/assets/images/smile.jpg" alt="" /> }
                     <h2 className='profile__name'>{user.username}</h2>
                 </div>
                 <div className='profile__map'>
@@ -55,11 +58,20 @@ function Profile () {
                             maxZoom= {20}
                             subdomains={['mt1','mt2','mt3']}
                             />
+                            { posts && posts.map((comment) => {
+                                return (
+                                    <Marker key={comment.id} position={[comment.lat, comment.lng]} >
+                                    </Marker>
+                            )})}
                     </MapContainer>
                 </div>
                 <ul className='profile__feed'>
                     {promos.map(promo=>{
-                        return <li className='profile__entry' key={promo.id}>{promo.promo}</li>
+                        return <a href={promo.link ? promo.link : "https://www.facebook.com"}>
+                            <li className='profile__entry' key={promo.id}>
+                            {promo.promo}
+                            </li>
+                            </a>
                     })}
                 </ul>
                 {/* <form className='profile__form' action="submit">

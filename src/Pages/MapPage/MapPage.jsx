@@ -37,7 +37,7 @@ function MapPage ({giveCoords, coords}) {
         <AddComment  getPosts={getPosts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
       </div>
       <div className={`map-div ${mapMove}`}>
-        <Map getPosts={getPosts} posts={posts} giveCoords={giveCoords}  coords={coords} toggleMain={toggleMain} toggleModal={toggleModal} mapMove={mapMove}/>
+        <Map  getPosts={getPosts} posts={posts} giveCoords={giveCoords}  coords={coords} toggleMain={toggleMain} toggleModal={toggleModal} modalActive={modalActive} mapMove={mapMove}/>
       </div>
     </section>
   )

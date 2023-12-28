@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect} from "react";
 import { useParams } from "react-router";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
@@ -7,7 +7,7 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, mapMove}) {
+function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, modalActive, mapMove}) {
   const params = useParams()
   const mapRef = useRef(null);
   const latitude = 49.249814;
@@ -42,10 +42,11 @@ function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, mapMove}) {
             {posts && posts.map((comment) => {
               return (
                 <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon}>
-                    <Popup className="map__popup">
-                        {comment.comment}
-                        <section className="map__pop--links">
-                          <button onClick={()=>toggleMain(comment.user_id)}>FOLLOW THAT THOUGHT!</button>
+                    <Popup>
+                        <section className="map__popup">
+                        <p className="map__comment">{comment.comment}</p>
+                          <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THAT THOUGHT!</button>
+                                                    {/* user id null for new comments */}
                         </section>
                     </Popup>
                 </Marker>
@@ -57,7 +58,7 @@ function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, mapMove}) {
 
         <div onClick={toggleModal} className={!params.id? `map__post ${slide}` : "map__post map__post--shrink"}>
           <p>
-          Map it
+        {modalActive === "" ? "Map it" : "Scrap it"} 
           </p>
         </div>
       
