@@ -7,7 +7,7 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mapMove}) {
+function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, mapMove}) {
   const params = useParams()
   const mapRef = useRef(null);
   const latitude = 49.249814;
@@ -39,13 +39,13 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, map
             subdomains={['mt1','mt2','mt3']}
             />
 
-            {posts && posts.map((comment,index) => {
+            {posts && posts.map((comment) => {
               return (
-                <Marker key={index} position={[comment.lat, comment.lng]} icon={customIcon}>
+                <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon}>
                     <Popup className="map__popup">
                         {comment.comment}
                         <section className="map__pop--links">
-                          <button onClick={toggleMain}>FOLLOW THAT THOUGHT!</button>
+                          <button onClick={()=>toggleMain(comment.user_id)}>FOLLOW THAT THOUGHT!</button>
                         </section>
                     </Popup>
                 </Marker>

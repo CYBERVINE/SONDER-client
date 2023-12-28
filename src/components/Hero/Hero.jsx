@@ -6,9 +6,10 @@ function Hero () {
     <>
     <h1 className="header header__one">The World is the post</h1>
     <h1 className="header header__two">and <em>THIS</em> is the comments section.</h1>
-    <div className="hero__gif--container">
-    <iframe className="hero__gif" src="https://giphy.com/embed/1zlU57Bawc50fi3AwJ" width="300" height="200" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nasa-space-earth-1zlU57Bawc50fi3AwJ"></a></p>
-    </div>
+     <div className="hero__gif--container">
+    {/* <div className="hero__iamge" /><div/> */}
+    {/* <iframe className="hero__gif" src="https://giphy.com/embed/1zlU57Bawc50fi3AwJ" width="300" height="200" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nasa-space-earth-1zlU57Bawc50fi3AwJ"></a></p> */}
+    </div> 
     <h1 className="header header__three">Map your inner monolouge</h1>
     <section className="enterance">
       <Link to={'/map'} className="enterance__anonymous enterance__card">

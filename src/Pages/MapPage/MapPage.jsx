@@ -13,10 +13,10 @@ function MapPage ({giveCoords, coords}) {
   const [mapMove, setMapMove] = useState("")
   const navigate = useNavigate()
 
-  function toggleMain () { 
+  function toggleMain (userId) { 
     setMapMove("map-div--out")
     setTimeout(() => {
-      navigate("/profile/4")
+      navigate(`/profile/${userId}`)
     }, 1400);
   }
 

@@ -21,7 +21,7 @@
   }
 
   &__form{
-    @include desktop {
+    @include tablet {
       height: 60vh;
       width: 30rem
     }

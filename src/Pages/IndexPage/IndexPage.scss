@@ -10,6 +10,10 @@
   @include tablet {
     border-radius: 10%;
   }
+
+  @include desktop {
+    border-radius: 2%;
+  }
   
   &__video{
     opacity: 0;
@@ -26,6 +30,10 @@
     border-radius: 3%;
     @include tablet{
       border-radius: 10%;
+    }
+
+    @include desktop {
+      border-radius: 2%;
     }
   }
 }
