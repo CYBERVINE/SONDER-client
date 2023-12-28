@@ -1,3 +1,5 @@
+@import './partials.scss/breakpoints';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,18 +8,32 @@
 
 body{
   background-image: url('../assets/images/star.webp');
-  background-color: rgb(43, 41, 41);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a{
   text-decoration: none;
   color: black;
+  font-size: 1.3rem;
 }
 
 h1{
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   margin: 0.25rem;
   color: azure;
+}
+
+h2{
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+p{
+  font-size: 1.3rem;
+
+  @include desktop{
+    font-size: 1.6rem;
+  }
 }
 
 li {
@@ -26,4 +42,93 @@ li {
 
 .leaflet-container {
   border-radius: 2rem;
- }
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:cornsilk;
+  border-radius: 2rem;
+  opacity: 0.9;
+  
+  @include desktop{
+    height: 96vh;
+  }
+  &__label{
+    font-size: 2rem;
+  }
+
+  &__input{
+
+    margin: 1rem;
+    border: 2px solid;
+    border-radius: 1rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+
+    
+    @include tablet {
+      padding: 2rem 1rem;
+      font-size: 2rem;
+      width: 20rem;
+    }
+
+    &:focus{
+      outline: none;
+      border:2px solid gold ;
+    }
+  }
+  &__button{
+    background-color: blue;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    width: 10rem;
+    color: white;
+
+    @include tablet{
+      margin: 1rem 0;
+      width: 15rem;
+      font-size: 2rem;
+    }
+
+    &:hover{
+      outline: 7px solid gold;
+      cursor: pointer;
+    }
+
+    &:focus{
+      background-color: purple;
+    }
+  }
+
+}
+
+.link-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 2rem 0;
+
+  &__description{
+    font-size: 0.8rem;
+    @include tablet{
+      font-size: 1.5rem;
+    }
+  }
+
+  &__link{
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    @include tablet{
+      font-size: 1.5rem;
+    }
+    color: blue;
+
+    &:hover{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

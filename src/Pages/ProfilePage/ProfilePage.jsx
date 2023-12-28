@@ -8,7 +8,7 @@ function ProfilePage ({giveCoords, coords}) {
   return (
     <section className='profile-page'>
     <div className="profile-page__map">
-      <Map/>
+      <Map />
     </div>
     <div className='profile-page__profile'>
       <Profile giveCoords={giveCoords} coords={coords}/>

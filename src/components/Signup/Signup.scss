@@ -1,0 +1,17 @@
+@import '../../styles/partials.scss/breakpoints';
+
+.signup{
+  padding: 1rem;
+  background-image: url('../../assets/images/river.jpg');
+  margin: 1rem;
+
+  @include tablet{
+    margin: 1.5rem 2rem;
+    padding: 2rem
+  }
+
+  @include desktop {
+    margin: 2rem 4vw;
+    padding: 4rem 8vw;
+  }
+}

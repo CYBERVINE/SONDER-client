@@ -4,26 +4,20 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import './Map.scss'
-import axios from "axios"
 
 
-function Map ({toggleMain, toggleModal}) {
+
+function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, mapMove}) {
   const params = useParams()
-
-  console.log(params)
   const mapRef = useRef(null);
   const latitude = 49.249814;
   const longitude = -123.1217199;
-  const URL = "http://localhost:8080"
-  const [posts, setPosts] = useState([])
 
-    async function getPosts () {
-      const {data} = await axios.get(`${URL}/posts`)
-      console.log(data)
-      setPosts(data)
-    }
+  const slide = mapMove !== "" ? "map__post--slide" : ""
 
-    useEffect(()=>{getPosts()},[])
+    if(!params.id) { useEffect(()=>{getPosts()},[]),
+                     useEffect(()=>{giveCoords()},[])
+        }
 
     const customIcon = new L.Icon({
       iconUrl: '../../src/assets/images/yellow.png',
@@ -45,14 +39,13 @@ function Map ({toggleMain, toggleModal}) {
             subdomains={['mt1','mt2','mt3']}
             />
 
-            {posts.map((comment,index) => {
+            {posts && posts.map((comment) => {
               return (
-                <Marker key={index} position={[comment.lat, comment.lng]} icon={customIcon}>
+                <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon}>
                     <Popup className="map__popup">
                         {comment.comment}
                         <section className="map__pop--links">
-                          <div>BACK TO REALITY</div>
-                          <button onClick={toggleMain}>FOLLOW THAT THOUGHT!</button>
+                          <button onClick={()=>toggleMain(comment.user_id)}>FOLLOW THAT THOUGHT!</button>
                         </section>
                     </Popup>
                 </Marker>
@@ -62,7 +55,7 @@ function Map ({toggleMain, toggleModal}) {
         </MapContainer>
       </section>
 
-        <div onClick={toggleModal} className={!params.id? "map__post" : "map__post map__post--shrink"}>
+        <div onClick={toggleModal} className={!params.id? `map__post ${slide}` : "map__post map__post--shrink"}>
           <p>
           Map it
           </p>

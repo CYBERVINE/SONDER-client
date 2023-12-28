@@ -29,6 +29,10 @@
       top:1.25rem;
       animation: shrink 1s;
     }
+
+    &--slide{
+      animation: slide 1400ms ease-out;
+    }
   }
   
   &__link{
@@ -50,5 +54,18 @@
 @keyframes shrink {
   100%{
     scale: 0;
+  }
+}
+
+@keyframes slide {
+  0%{
+    bottom: 1.25rem;
+  }
+  70%{
+    scale: (1);
+  }
+  100%{
+    scale: (.8);
+    bottom: 80%;
   }
 }

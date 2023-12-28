@@ -1,0 +1,45 @@
+@import '../../styles/partials.scss/breakpoints';
+
+.index-page{
+  position: relative;
+  background-color: rgb(58, 55, 55, 0.5);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 3%;
+  
+  @include tablet {
+    border-radius: 10%;
+  }
+
+  @include desktop {
+    border-radius: 2%;
+  }
+  
+  &__video{
+    opacity: 0;
+    animation: hero-in 3s ease-in-out;
+    animation-fill-mode: forwards;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 3%;
+    @include tablet{
+      border-radius: 10%;
+    }
+
+    @include desktop {
+      border-radius: 2%;
+    }
+  }
+}
+
+@keyframes hero-in {
+  100%{
+    opacity: 1;
+  }
+}

@@ -1,0 +1,40 @@
+.main-page{
+
+  position: relative;
+  height: 100vw;
+  width: 100vw
+
+}
+.modal-div{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 0.8;
+  
+  &--active{
+    display: flex;
+    z-index: 1000;
+  }
+}
+
+.map-div{
+  position: absolute;
+  &--out{
+    animation: map 1400ms ease-in-out
+  }
+}
+
+@keyframes map {
+  0%{
+    transform: scale(1);
+  }
+
+  100%{
+    transform: scale(.5) translateY(-35vh) translateX(-10vw);
+    opacity: 0.8;
+  }
+}
