@@ -1,4 +1,4 @@
-import React, { useRef, useEffect} from "react";
+import React, { useRef, useEffect, useState} from "react";
 import { useParams } from "react-router";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
@@ -7,11 +7,13 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, modalActive, mapMove}) {
+function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove}) {
   const params = useParams()
   const mapRef = useRef(null);
   const latitude = 49.249814;
   const longitude = -123.1217199;
+  
+  const [range, setRange] = useState(0.1)
 
   const slide = mapMove !== "" ? "map__post--slide" : ""
 
@@ -19,6 +21,7 @@ function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, modalActive
                      useEffect(()=>{giveCoords()},[])
         }
 
+        console.log(coords)
     const customIcon = new L.Icon({
       iconUrl: '../../src/assets/images/yellow.png',
       iconSize: [18, 18], 
@@ -44,10 +47,15 @@ function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, modalActive
                 <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon}>
                     <Popup>
                         <section className="map__popup">
-                        <p className="map__comment">{comment.comment}</p>
+                          {(Math.abs(comment.lat - coords.lat) < range) && (Math.abs(comment.lng - coords.lng) < range) ? 
+                          <>
+                          <p className="map__comment">{comment.comment}</p> 
                           <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THAT THOUGHT!</button>
-                                                    {/* user id null for new comments */}
-                        </section>
+                          </>
+                          : 
+                          <p
+                            className="map__comment">You're not close enough yet to see the thoughts this place inspired.</p>}
+                      </section>
                     </Popup>
                 </Marker>
               )
@@ -56,9 +64,18 @@ function Map ({getPosts, posts, giveCoords, toggleMain, toggleModal, modalActive
         </MapContainer>
       </section>
 
+        <section className="map__precision"> 
+            <h3>Set Precison</h3>
+            <button className="map__precision--button" onClick={()=>setRange(0.001)}>High</button>
+            <button className="map__precision--button" onClick={()=>setRange(0.01)}>Medium</button>
+            <button className="map__precision--button" onClick={()=>setRange(0.1)}>Low</button>
+            <p>{range}</p>
+        </section>
+      
+
         <div onClick={toggleModal} className={!params.id? `map__post ${slide}` : "map__post map__post--shrink"}>
           <p>
-        {modalActive === "" ? "Map it" : "Scrap it"} 
+            {modalActive === "" ? "Map it" : "Scrap it"} 
           </p>
         </div>
       

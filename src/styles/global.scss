@@ -45,8 +45,22 @@ li {
 }
 
 .leaflet-popup-content-wrapper{
-  width: 42rem;
-  background-color: black;
+  @include tablet{
+    width: 22.5rem;
+  }
+  @include desktop{
+    width: 27.5rem;
+  }
+
+}
+.leaflet-popup-tip-container{
+  display: none;
+}
+.leaflet-popup-content{
+  width: 10rem;
+  margin: 0;
+  padding: 0;
+
 }
 
 

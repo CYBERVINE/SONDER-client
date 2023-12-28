@@ -6,6 +6,7 @@
   margin: 1rem;
   padding: 1rem;
   border-radius: 3%;
+  min-height: 53rem;
   
   @include tablet {
     border-radius: 10%;
@@ -52,10 +53,10 @@
 
     @include tablet {
       top: 25rem;
-      height: 27rem
+      height: 36rem
     }
     @include desktop {
-      height: 33rem
+      height: 41rem
     }
   
   }
