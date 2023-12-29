@@ -68,7 +68,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
         <footer className="map__nav">
 
           <section className="map__precision"> 
-              <h3>Set Precison</h3>
+              <h3 className="map__precision-title" >Set Precison</h3>
           {(modalActive === "" ) &&
             <>
               <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>

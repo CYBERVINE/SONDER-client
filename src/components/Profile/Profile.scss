@@ -4,6 +4,7 @@
 }
 
 .profile{
+  position: relative;
   height: 100%;
   width: 100%;
   border-radius: 1rem;
@@ -11,6 +12,42 @@
 
   &--fade{
     animation: fade 400ms;
+  }
+
+  &__menu{
+    position: absolute;
+    width:3rem;
+    right: 1rem;
+    top: 1rem;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  &__dropdown{
+    padding: 0.75rem 0;
+    position: absolute;
+    border: 2px solid black;
+    top: 2.1rem;
+    right: 2rem;
+    background-color: #F9F4F1;
+    display: none;
+
+    &--active{
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--option{
+      margin: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-bottom: 1px solid grey;
+      &:hover{
+        background-color: #caf0ca;
+        cursor: pointer;
+      }
+    }
   }
   
   &__banner{
