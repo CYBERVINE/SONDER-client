@@ -10,6 +10,7 @@ function MapPage ({giveCoords, coords}) {
   const URL = "http://localhost:8080"
   const [posts, setPosts] = useState([])
   const [modalActive, setModalActive] = useState("")
+  const [formActive, setFormActive] = useState("")
   const [mapMove, setMapMove] = useState("")
   const navigate = useNavigate()
 
@@ -22,6 +23,8 @@ function MapPage ({giveCoords, coords}) {
 
   function toggleModal () {
     modalActive === "" ? setModalActive("modal-div--active") : setModalActive("")
+    formActive === "" ? setFormActive("form-div--active") : setFormActive("")
+
   }
 
   async function getPosts () {
@@ -33,7 +36,8 @@ function MapPage ({giveCoords, coords}) {
 
   return (
     <section className="main-page">
-      <div className= {`modal-div ${modalActive}`} >
+      <div className= {`modal-div ${modalActive}`} ></div>
+      <div className={`form-div ${formActive}`}>
         <AddComment  getPosts={getPosts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
       </div>
       <div className={`map-div ${mapMove}`}>

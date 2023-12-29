@@ -27,6 +27,11 @@
     bottom: 1.25rem;
     right: 1.25rem;
 
+    @include tablet {
+      width: 6rem;
+      margin: 2rem;
+    }
+
     &--shrink{
       top:1.25rem;
       animation: shrink 1s;
@@ -103,6 +108,10 @@
     margin: 1rem;
     padding: 0.25rem;
     border: 2px solid black;
+
+    @include tablet {
+      margin: 2rem;
+    }
 
     &--button{
       background-color: lightslategray;

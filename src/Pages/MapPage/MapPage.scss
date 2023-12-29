@@ -2,7 +2,10 @@
 
   position: relative;
   height: 100vh;
-  width: 100vw
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 .modal-div{
@@ -12,11 +15,17 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background-color: black;
-  opacity: 0.8;
+  background-color: lightseagreen;
+  opacity: 0.4;
   
   &--active{
     display: flex;
+    z-index: 500;
+  }
+}
+
+.form-div{
+  &--active{
     z-index: 1000;
   }
 }
