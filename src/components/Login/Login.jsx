@@ -11,13 +11,14 @@ function Login () {
       const form = e.target
       console.log(form.username.value)
       try {
-        const response = await axios.get("http://localhost:8080/login",
-        // {
-        //   username : form.username.value,
-        //   password : form.password.value
-        // }
+        const response = await axios.post("http://localhost:8080/login",
+        {
+          email : form.email.value,
+          password : form.password.value
+        }
         )
         console.log(response)
+        sessionStorage.authToken = response.data.token
         // navigate('/map')
       } catch (err) {
         console.error(err)
@@ -30,7 +31,7 @@ function Login () {
     <section className="login">
     <form className='login__form form' action="submit" onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <input className='form__input'type="text" name="username" placeholder='Username'  required/>
+      <input className='form__input'type="text" name="email" placeholder='Email'  required/>
       <input className='form__input' type="password" name="password" placeholder='Password'  required/>
       <button className='form__button' type="submit">Login</button>
       <div className='link-section'>

@@ -7,6 +7,7 @@ import IndexPage from './Pages/IndexPage/IndexPage'
 import SignupPage from './Pages/SignupPage/SignupPage'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
+import EditProfilePage from './Pages/EditProfilePage/EditProfilePage'
 import MapPage from './Pages/MapPage/MapPage'
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/profile/:id' element={<ProfilePage  giveCoords={giveCoords} coords={coords}/>}/>
         <Route path='/map' element={<MapPage giveCoords={giveCoords} coords={coords}/>}/>
+        <Route path='/edit' element={<EditProfilePage/>}/>
       </Routes>
     </BrowserRouter>
   )

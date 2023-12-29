@@ -16,7 +16,7 @@ function CommentsModal({getPosts, coords, toggleModal}){
           lng: coords.lng,
           comment: e.target.comment.value
         })
-        console.log(data)
+
       } catch (err) {
         console.error(err)
       }
@@ -26,7 +26,7 @@ function CommentsModal({getPosts, coords, toggleModal}){
     toggleModal()
     e.target.comment.value = ''
   }
-  console.log(coords)
+
   
   return(
     <section >

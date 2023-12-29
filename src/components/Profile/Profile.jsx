@@ -61,6 +61,7 @@ function Profile () {
                             { posts && posts.map((comment) => {
                                 return (
                                     <Marker key={comment.id} position={[comment.lat, comment.lng]} >
+                                        
                                     </Marker>
                             )})}
                     </MapContainer>
@@ -74,11 +75,6 @@ function Profile () {
                             </a>
                     })}
                 </ul>
-                {/* <form className='profile__form' action="submit">
-                    <label htmlFor="promo">What's your next promo?</label>
-                    <input type="text" />
-                    <button type="submit">Post your Promo</button>
-                </form> */}
                 <div className='profile__return-container'>
 
                 <div className='profile__return' onClick={backToReality}>Back To Reality</div>

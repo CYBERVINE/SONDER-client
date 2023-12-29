@@ -25,8 +25,10 @@
 }
 
 .form-div{
+  display: none;
   &--active{
-    z-index: 1000;
+    display: flex;
+    z-index: 1500;
   }
 }
 

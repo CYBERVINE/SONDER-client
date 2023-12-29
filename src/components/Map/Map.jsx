@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState} from "react";
+import {Link} from 'react-router-dom'
 import { useParams } from "react-router";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
@@ -15,13 +16,13 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
   
   const [range, setRange] = useState(0.1)
 
-  const slide = mapMove !== "" ? "map__post--slide" : ""
+  const slide = mapMove !== "" ? "map__nav-button--slide" : ""
 
     if(!params.id) { useEffect(()=>{getPosts()},[]),
                      useEffect(()=>{giveCoords()},[])
         }
 
-        console.log(coords)
+
     const customIcon = new L.Icon({
       iconUrl: '../../src/assets/images/yellow.png',
       iconSize: [18, 18], 
@@ -62,23 +63,33 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
             })}
 
         </MapContainer>
+
+
+        <footer className="map__nav">
+
+          <section className="map__precision"> 
+              <h3>Set Precison</h3>
+          {(modalActive === "" ) &&
+            <>
+              <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
+              <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
+              <button className="map__precision-button" onClick={()=>setRange(0.1)}>Low</button>
+              <p>{range}</p>
+            </>}
+          </section>
+
+          <Link to={'/profile/4'} className="map__nav-button">
+          View Profile
+          </Link>
+        
+
+          <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
+        
+              {modalActive === "" ? "Map it" : "Scrap it"} 
+
+          </div>
+        </footer>
       </section>
-
-        <section className="map__precision"> 
-            <h3>Set Precison</h3>
-            <button className="map__precision--button" onClick={()=>setRange(0.001)}>High</button>
-            <button className="map__precision--button" onClick={()=>setRange(0.01)}>Medium</button>
-            <button className="map__precision--button" onClick={()=>setRange(0.1)}>Low</button>
-            <p>{range}</p>
-        </section>
-      
-
-        <div onClick={toggleModal} className={!params.id? `map__post ${slide}` : "map__post map__post--shrink"}>
-          <p>
-            {modalActive === "" ? "Map it" : "Scrap it"} 
-          </p>
-        </div>
-      
       </>
     );
   };
