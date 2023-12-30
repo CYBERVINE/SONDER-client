@@ -78,7 +78,7 @@ function Profile () {
                 </div>
                 <ul className='profile__feed'>
                     {publicView ? promos.map(promo=>{
-                        return <a key={promo.id} href={promo.link ? promo.link : "https://www.facebook.com"}>
+                        return <a key={promo.id} href={promo.link ? promo.link : "http://localhost:5173"}>
                             <li className='profile__entry' >
                             {promo.promo}
                             </li>

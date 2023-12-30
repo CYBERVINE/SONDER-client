@@ -62,6 +62,10 @@
     }
   }
 
+  input[type="file"] {
+    display: none;
+  }
+
   &__avatar{
     
     width: 6rem;  
@@ -76,7 +80,18 @@
       height: 10rem;
     }
       &--upload{
-        font-size: 1rem;
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        background-color: chocolate;
+        color: black;
+        padding: 0.5rem;
+        width: inherit;
+
+        &:hover{
+          cursor: pointer;
+          background-color: burlywood;
+          color: whitesmoke;
+        }
       }
   }
     
@@ -111,9 +126,15 @@
   &__button{
     background-color: black;
     color:white;
+    padding: 0.25rem;
     width: 14rem;
     @include tablet{
       width:50%
+    }
+
+    &:hover{
+      cursor: pointer;
+      background-color: grey;
     }
   }
 }

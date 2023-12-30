@@ -14,8 +14,10 @@ function EditProfile () {
           <div className='edit__profile--text'>
             <label className='edit__label' htmlFor="username">Edit username here:</label>  
             <input className='edit__input' type="text" name="username" id="username" placeholder='USERNAME'/>
-            <label className='edit__label'  htmlFor="avatar">Upload a new avatar:</label>
-            <input className='edit__avatar--upload' type="file" name="avatar" id="" />
+            <label className='edit__avatar--upload'  htmlFor="avatar">Upload a new avatar
+            <input type="file" name="avatar" id="avatar" />
+            </label>
+            <button className='edit__button' type="submit">Update your profile</button>
           </div>
         </section>
         <Link to={'/profile/4'}><h2 className='edit__heading'>View Profile</h2> </Link>
