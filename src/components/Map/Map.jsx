@@ -11,9 +11,6 @@ import './Map.scss'
 function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove}) {
   const params = useParams()
   const mapRef = useRef(null);
-  const latitude = 49.249814;
-  const longitude = -123.1217199;
-  //lat lng on phone is .14 decimals
   const [range, setRange] = useState(0.1)
 
   const slide = mapMove !== "" ? "map__nav-button--slide" : ""
@@ -29,12 +26,16 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
       iconAnchor: [16, 32], 
       popupAnchor: [0, -32], 
     });
+
+
   
     return ( 
       <>
-
+    { coords.lat &&
       <section className="map">
-        <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} ref={mapRef} 
+
+    
+        <MapContainer className="leaf" center={[coords.lat, coords.lng]} zoom={13} zoomControl={false} ref={mapRef} 
         attributionControl={false}  style={{height: "100vh", width: "100vw"}}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -63,7 +64,8 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
             })}
 
         </MapContainer>
-
+        
+      
 
         <footer className="map__nav">
 
@@ -89,6 +91,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
           </div>
         </footer>
       </section>
+        }
       </>
     );
   };
