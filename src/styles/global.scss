@@ -44,6 +44,25 @@ li {
   border-radius: 2rem;
 }
 
+.leaflet-popup-content-wrapper{
+  @include tablet{
+    width: 22.5rem;
+  }
+  @include desktop{
+    width: 27.5rem;
+  }
+
+}
+.leaflet-popup-tip-container{
+  display: none;
+}
+.leaflet-popup-content{
+  width: 10rem;
+  margin: 0;
+  padding: 0;
+
+}
+
 
 .form{
   display: flex;
@@ -131,4 +150,18 @@ li {
       text-decoration: underline;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 1rem;             
+}
+
+::-webkit-scrollbar-track {
+  background: white;       
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;    
+  border-radius: 3rem;   
+  border: 0.3rem solid white;  
 }

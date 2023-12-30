@@ -39,38 +39,43 @@
 }
 
 .header{
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  text-align: center;
-  margin-bottom: 0.5rem;
-
-  @include desktop{
-    margin: 3rem 0;
-  }
-
-  @include desktop {
-    font-size: 3rem;
-  }
-  opacity: 0;
-
-  &__one{
-    animation: fade-in-one 2s;
-    animation-delay: 550ms;
-    animation-fill-mode: forwards;
-  }
-
-  &__two{
-    animation: fade-in-two 4s;
-    animation-delay: 600ms;
-    animation-fill-mode: forwards;
-
-  }
-  &__three{
-    animation: fade-in-three 5s;
-    animation-delay: 600ms;
-    animation-fill-mode: forwards;
+  &__line{
+    
+    text-align: center;
+    margin-bottom: 0.5rem;
+    
+    @include tablet{
+      margin: 3rem 0;
+      font-size: 3rem;
+    }
+    
+    opacity: 0;
+    
+    &--one{
+      animation: fade-in-one 2s;
+      animation-delay: 550ms;
+      animation-fill-mode: forwards;
+    }
+    
+    &--two{
+      animation: fade-in-two 4s;
+      animation-delay: 600ms;
+      animation-fill-mode: forwards;
+      
+    }
+    &--three{
+      animation: fade-in-three 5s;
+      animation-delay: 600ms;
+      animation-fill-mode: forwards;
+    }
   }
 }
-@keyframes fade-in-planet {
+  @keyframes fade-in-planet {
   0%{
     opacity: 0;
   }

@@ -1,9 +1,13 @@
+@import '../../styles/partials.scss/breakpoints';
+
 .wrapper{
   padding: 1rem;
   width: 100vw;
+  height: 100%;
 }
 
 .profile{
+  position: relative;
   height: 100%;
   width: 100%;
   border-radius: 1rem;
@@ -11,6 +15,43 @@
 
   &--fade{
     animation: fade 400ms;
+  }
+
+  &__menu{
+    position: absolute;
+    width:3rem;
+    right: 1rem;
+    top: 1rem;
+    
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  
+  &__dropdown{
+    padding: 0.75rem 0;
+    position: absolute;
+    border: 2px solid black;
+    top: 2.1rem;
+    right: 2rem;
+    background-color: #F9F4F1;
+    display: none;
+    z-index: 1000;
+
+    &--active{
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--option{
+      margin: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-bottom: 1px solid grey;
+      &:hover{
+        background-color: #caf0ca;
+        cursor: pointer;
+      }
+    }
   }
   
   &__banner{
@@ -29,6 +70,9 @@
     object-position: 25% 50%;
   }
 
+  &__name{
+    padding: 0 1rem;
+  }
   
   &__map{
     padding: 1rem 1rem 0 1rem;
@@ -39,6 +83,12 @@
     margin: 1rem;
     padding: 1rem 0;
     border-top: 1px dashed grey;
+    max-height: 20rem;
+    overflow: auto;
+
+    @include tablet {
+      max-height: 25rem;
+    }
   }
 
   &__entry{

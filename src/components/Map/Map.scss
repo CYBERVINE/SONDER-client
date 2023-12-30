@@ -1,29 +1,145 @@
+@import '../../styles/partials.scss/breakpoints';
+
 .map{
   position: relative;
   
-
-  &__footer{
-    height: 5vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+  // &__footer{
+  //   height: 5vh;
+  //   width: 100vw;
+  //   display: flex;
+  //   justify-content: center;
+  //   background-color: lightsalmon;
+  // }
+  
+  &__link{
+    font-weight: bold;
+    color: black;
+    font-size: 1rem;
+    padding: 1rem;
     background-color: lightsalmon;
+    border: 1px solid black;
+
+    &:hover{
+      cursor: pointer;
+      border: 1px solid gold;
+      color: beige;
+    }
+
+    &:focus{
+      animation: button 1s;
+    }
   }
 
-  &__post{
-    color: white;
-    background-color: black;
+  &__popup{
+    width: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightcyan;
+    color: #333333;
+    border: 1px solid black;
+    padding: 0.25rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    @include tablet{
+      width: 20rem;
+    }
+    @include desktop{
+      width: 25rem;
+    }
+  }
+
+  &__comment{
+    font-weight: 700;
+
+    @include tablet{
+      font-size: 1.5rem;
+      padding: 0.5rem;
+
+    }
+    @include desktop{
+      font-size: 2rem;
+      padding: 1rem;
+
+    }
+  }
+
+  &__nav{
+    background-color: none;
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+    height: inherit;
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
+    width: 100vw;
+    padding: 0 1rem 1rem;
+  }
+
+  &__precision{
+
+    bottom: 1rem;
+    background-color: rgb(90, 179, 90);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 5rem;
+    padding: 0.25rem;
+    border: 2px solid black;
     width: 5rem;
-    border: 0;
-    border-radius: 50%;
-    z-index: 1000;
-    position: absolute;
-    bottom: 1.25rem;
-    right: 1.25rem;
+    font-size: 0.5rem;
+
+    @include tablet {
+      margin: 2rem;
+      font-size: 1.5rem;
+      width: 10rem;
+    }
+    &-title{
+
+      @include tablet{
+        font-size: 1.6rem;
+      }
+
+    }
+
+    &-button{
+      background-color: lightslategray;
+      border: none;
+      width: 100%;
+      margin: 0.25rem;
+      font-size: 0.9rem;
+      @include tablet{
+        font-size: 1.5rem;
+      }
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+ 
+
+  &__nav-button{
+    color: white;
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 40%;
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    @include tablet {
+      margin: 2rem;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+    }
 
     &--shrink{
       top:1.25rem;
@@ -34,21 +150,7 @@
       animation: slide 1400ms ease-out;
     }
   }
-  
-  &__link{
-    font-weight: bold;
-    color: bisque;
-  }
 
-  &__popup{
-    background-color: #ffffff;
-    color: #333333;
-    border: 1px solid #cccccc;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
-  }
 }
 
 @keyframes shrink {
@@ -67,5 +169,17 @@
   100%{
     scale: (.8);
     bottom: 80%;
+  }
+}
+
+@keyframes button {
+  0%{
+    background-color: aqua;
+  }
+  50%{
+    background-color: aqua;
+  }
+  100%{
+    background-color: lightsalmon;
   }
 }
