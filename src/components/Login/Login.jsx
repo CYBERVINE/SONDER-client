@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import './login.scss'
 
 function Login () {
-  const navigate = useNavigate()
+  const URL = import.meta.env.VITE_BASE_URL
+  // const navigate = useNavigate()
   function handleSubmit (e) {
     e.preventDefault()
     async function validateUser (e) {
       const form = e.target
       console.log(form.username.value)
       try {
-        const response = await axios.post("http://localhost:8080/login",
+        const response = await axios.post(`${URL}/login`,
         {
           email : form.email.value,
           password : form.password.value

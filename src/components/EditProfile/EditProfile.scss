@@ -2,9 +2,21 @@
 
 .edit{
   background: linear-gradient( to top, #b0d8b0, #EEF4ED) ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  &__wrapper{
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    @include tablet{
+      border: 5px solid rgb(5, 165, 5);
+      margin: 0 10vw;
+
+    }
+  }
 
   &__nav{
     display: flex;
@@ -29,11 +41,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 1rem 0;
-    @include tablet{
-      padding: 1rem;
-      border: 5px solid rgb(5, 165, 5);
 
-    }
   }
 
   &__profile{
@@ -44,7 +52,7 @@
     
     @include tablet {
       flex-direction: row;
-      margin-bottom: 3rem;
+      margin-bottom: 0.25rem;
       padding: 2rem;
     }
 

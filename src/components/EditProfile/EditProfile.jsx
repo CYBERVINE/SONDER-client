@@ -5,8 +5,8 @@ function EditProfile () {
   return (
 
     <main className='edit'>
+      <div className='edit__wrapper'>
       <form className='edit__form' action="submit">
-
         <h2 className='edit__heading'>EDIT USER INFO</h2> 
 
         <section className='edit__profile'>
@@ -17,9 +17,10 @@ function EditProfile () {
             <label className='edit__label'  htmlFor="avatar">Upload a new avatar:</label>
             <input className='edit__avatar--upload' type="file" name="avatar" id="" />
           </div>
-        <Link to={'/profile/4'}><h2 className='edit__heading'>View Profile</h2> </Link>
         </section>
-
+        <Link to={'/profile/4'}><h2 className='edit__heading'>View Profile</h2> </Link>
+      </form>
+      <form className='edit__form' action="submit">
       <h2 className='edit__heading'>ADD NEW PROMO</h2>
             <label className='edit__label' htmlFor="promo">What's do you want to promote?</label>
             <textarea className='edit__textarea' type="text" rows="6" />
@@ -28,6 +29,7 @@ function EditProfile () {
             <button className='edit__button' type="submit">Post your Promo</button>
       </form>
 
+      </div>
     </main>
 
   )

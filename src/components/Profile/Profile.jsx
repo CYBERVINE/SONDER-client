@@ -50,7 +50,7 @@ function Profile () {
     
     return(
         <section className='wrapper'>
-            <main className={`profile ${profileFade}`}>
+            <main onClick={()=>{if(menu)setMenu(false)}}className={`profile ${profileFade}`}>
                 <img onClick={()=>{menu === false ? setMenu(true) : setMenu(false)}} className="profile__menu"  src="../src/assets/images/menu.png" alt="menu" />
                 <div className={`profile__dropdown ${menu === false ? "" : "profile__dropdown--active"}`}>
                     <Link to={"/edit"} className='profile__dropdown--option'>Edit Profile</Link>

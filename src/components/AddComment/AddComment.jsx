@@ -1,10 +1,9 @@
 import './AddComment.scss'
 import axios from "axios"
-const URL = "http://localhost:8080"
+const URL = import.meta.env.VITE_BASE_URL
 
 
 function CommentsModal({getPosts, coords, toggleModal}){
-
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -14,7 +13,8 @@ function CommentsModal({getPosts, coords, toggleModal}){
         {
           lat: coords.lat,
           lng: coords.lng,
-          comment: e.target.comment.value
+          comment: e.target.comment.value,
+          user_id: 1
         })
 
       } catch (err) {

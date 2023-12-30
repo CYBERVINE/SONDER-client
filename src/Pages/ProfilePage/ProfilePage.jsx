@@ -1,7 +1,7 @@
 import Profile from '../../components/Profile/Profile'
 import Map from '../../components/Map/Map'
 import './ProfilePage.scss'
-function ProfilePage ({giveCoords, coords}) {
+function ProfilePage () {
 
   
   
@@ -11,7 +11,7 @@ function ProfilePage ({giveCoords, coords}) {
       <Map />
     </div>
     <div className='profile-page__profile'>
-      <Profile giveCoords={giveCoords} coords={coords}/>
+      <Profile/>
     </div>
     </section>
   )

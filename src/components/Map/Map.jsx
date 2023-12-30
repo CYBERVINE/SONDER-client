@@ -13,7 +13,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
   const mapRef = useRef(null);
   const latitude = 49.249814;
   const longitude = -123.1217199;
-  
+  //lat lng on phone is .14 decimals
   const [range, setRange] = useState(0.1)
 
   const slide = mapMove !== "" ? "map__nav-button--slide" : ""
@@ -77,7 +77,6 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
               <p>{range}</p>
             </>}
           </section>
-
           <Link to={'/profile/4'} className="map__nav-button">
           View Profile
           </Link>
