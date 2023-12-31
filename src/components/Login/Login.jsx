@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import './login.scss'
 
 function Login () {
   const URL = import.meta.env.VITE_BASE_URL
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   function handleSubmit (e) {
     e.preventDefault()
     async function validateUser (e) {
       const form = e.target
-      console.log(form.username.value)
       try {
         const response = await axios.post(`${URL}/login`,
         {
@@ -18,9 +17,8 @@ function Login () {
           password : form.password.value
         }
         )
-        console.log(response)
         sessionStorage.authToken = response.data.token
-        // navigate('/map')
+        if (response.status === 200 ){navigate('/map')}
       } catch (err) {
         console.error(err)
       }

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
 import axios from "axios"
 
-function MapPage ({giveCoords, coords}) {
+function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
 
   const URL = "http://localhost:8080"
   const [posts, setPosts] = useState([])
@@ -28,20 +28,22 @@ function MapPage ({giveCoords, coords}) {
   }
 
   async function getPosts () {
+
     const {data} = await axios.get(`${URL}/posts`)
     setPosts(data)
   }
 
   useEffect(()=>toggleModal,[])
+  useEffect(()=>getLoginId(),[])
 
   return (
     <section className="main-page">
       <div className= {`modal-div ${modalActive}`} ></div>
       <div className={`form-div ${formActive}`}>
-        <AddComment  getPosts={getPosts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
+        <AddComment decodedToken={decodedToken} getPosts={getPosts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
       </div>
       <div className={`map-div ${mapMove}`}>
-        <Map  getPosts={getPosts} posts={posts} giveCoords={giveCoords}  coords={coords} toggleMain={toggleMain} toggleModal={toggleModal} modalActive={modalActive} mapMove={mapMove}/>
+        <Map  decodedToken={decodedToken} getLoginId={getLoginId} getPosts={getPosts} posts={posts} giveCoords={giveCoords}  coords={coords} toggleMain={toggleMain} toggleModal={toggleModal} modalActive={modalActive} mapMove={mapMove}/>
       </div>
     </section>
   )

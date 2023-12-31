@@ -8,7 +8,8 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios"
 
 
-function Profile () {  
+
+function Profile ({decodedToken, getLoginId}) {  
     const mapRef = useRef(null);
     const params = useParams()
 
@@ -30,8 +31,6 @@ function Profile () {
           }, 300);
     }
 
-    console.log(menu)
-
     async function getProfile(params){
         try{
             const user = await axios.get(`http://localhost:8080/users/${params.id}`)
@@ -40,22 +39,27 @@ function Profile () {
             setUser(user.data)
             setPromos(promos.data)
             setPosts(posts.data)
-            console.log(posts.data)
         }catch(err){
             console.error(err)
         }
     }
 
-    useEffect(()=>{getProfile(params)},[user.username])
+
+    useEffect(()=>{ getProfile(params)},[user.username])
+    useEffect(()=>{ getLoginId()},[])
     
     return(
         <section className='wrapper'>
             <main onClick={()=>{if(menu)setMenu(false)}}className={`profile ${profileFade}`}>
+                {(decodedToken?.id === user.id) && 
+                <>
                 <img onClick={()=>{menu === false ? setMenu(true) : setMenu(false)}} className="profile__menu"  src="../src/assets/images/menu.png" alt="menu" />
                 <div className={`profile__dropdown ${menu === false ? "" : "profile__dropdown--active"}`}>
                     <Link to={"/edit"} className='profile__dropdown--option'>Edit Profile</Link>
                     <p onClick={()=>{publicView === false ? setPublicView(true) : setPublicView(false)}} className='profile__dropdown--option'>View Note Pad</p>
                 </div>
+                </>
+                }
                 <div className='profile__banner'>
                 {user.avatar ? <img className='profile__avatar'  src={user.avatar} alt="avatar" /> : <img className='profile__avatar' src="../src/assets/images/smile.jpg" alt="" /> }
                     <h2 className='profile__name'>{user.username}</h2>
@@ -78,7 +82,7 @@ function Profile () {
                 </div>
                 <ul className='profile__feed'>
                     {publicView ? promos.map(promo=>{
-                        return <a key={promo.id} href={promo.link ? promo.link : "http://localhost:5173"}>
+                        return <a key={promo.id} href={promo.link ? promo.link : "http://localhost:5173/map"}>
                             <li className='profile__entry' >
                             {promo.promo}
                             </li>

@@ -8,7 +8,7 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove}) {
+function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove, decodedToken, getLoginId}) {
   const params = useParams()
   const mapRef = useRef(null);
   const [range, setRange] = useState(0.1)
@@ -67,29 +67,33 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
         
       
 
-        <footer className="map__nav">
+          <footer className="map__nav">
 
-          <section className="map__precision"> 
-              <h3 className="map__precision-title" >Set Precison</h3>
-          {(modalActive === "" ) &&
-            <>
-              <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
-              <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
-              <button className="map__precision-button" onClick={()=>setRange(0.1)}>Low</button>
-              <p>{range}</p>
-            </>}
-          </section>
-          <Link to={'/profile/4'} className="map__nav-button">
-          View Profile
-          </Link>
-        
+            <section className="map__precision"> 
+                <h3 className="map__precision-title" >Set Precison</h3>
+            {(modalActive === "" ) &&
+              <>
+                <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
+                <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
+                <button className="map__precision-button" onClick={()=>setRange(0.1)}>Low</button>
+                <p>{range}</p>
+              </>}
+            </section>
 
-          <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
-        
-              {modalActive === "" ? "Map it" : "Scrap it"} 
+              {(sessionStorage.getItem("authToken") && !params.id) ?
+                  <Link to={`/profile/${decodedToken.id}`} className="map__nav-button">
+                  View Profile
+                  </Link> :
+                  <Link to={"/signup"} className="map__nav-button">Create a Profile</Link>
+                }
+          
 
-          </div>
-        </footer>
+            <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
+          
+                {modalActive === "" ? "Map it" : "Scrap it"} 
+
+            </div>
+          </footer>
       </section>
         }
       </>
