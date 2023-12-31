@@ -47,6 +47,14 @@ function EditProfile ({getLoginId, decodedToken}) {
   useEffect(()=>{getUserDetails()},[decodedToken.id])
   useEffect(()=>{getLoginId()},[])
 
+
+  const[file, setFile] = useState()
+  function upload () {
+    const formData = new FormData()
+    formData.append('file', file)
+    axios.post(`${URL}/upload`,formData)
+  }
+
   return (
 
     <main className='edit'>
@@ -67,6 +75,14 @@ function EditProfile ({getLoginId, decodedToken}) {
         </section>
         <Link to={`/profile/${decodedToken.id}`}><h2 className='edit__heading'>View Profile</h2> </Link>
       </form>
+
+        <h4>test form</h4>
+
+        <input type="file" onChange={(e) => setFile(e.target.files[0])}/>
+        <button type="button" onClick={upload}>Uplaod</button>
+
+
+
       <form className='edit__form' action="submit" onSubmit={handlePromo}>
       <h2 className='edit__heading'>ADD NEW PROMO</h2>
             <label className='edit__label' htmlFor="promo">What do you want to promote?</label>
