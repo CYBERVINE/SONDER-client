@@ -3,7 +3,7 @@ import axios from "axios"
 const URL = import.meta.env.VITE_BASE_URL
 
 
-function CommentsModal({getPosts, coords, toggleModal}){
+function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -14,7 +14,7 @@ function CommentsModal({getPosts, coords, toggleModal}){
           lat: coords.lat,
           lng: coords.lng,
           comment: e.target.comment.value,
-          user_id: 1
+          user_id: decodedToken.id
         })
 
       } catch (err) {

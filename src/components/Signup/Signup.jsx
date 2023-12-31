@@ -27,7 +27,7 @@ function Signup () {
           }
           navigate('/login')
         } else {
-          console.log("Ppasswords don't match")  
+          console.log("Passwords don't match, just be atleat 5 characters")  
         }
       }
       makeUser(e)

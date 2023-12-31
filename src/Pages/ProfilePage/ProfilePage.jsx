@@ -1,17 +1,15 @@
 import Profile from '../../components/Profile/Profile'
 import Map from '../../components/Map/Map'
 import './ProfilePage.scss'
-function ProfilePage () {
-
-  
+function ProfilePage ({giveCoords, coords, decodedToken, getLoginId}) {
   
   return (
     <section className='profile-page'>
     <div className="profile-page__map">
-      <Map />
+      <Map giveCoords={giveCoords} coords={coords}/>
     </div>
     <div className='profile-page__profile'>
-      <Profile/>
+      <Profile  decodedToken={decodedToken} getLoginId={getLoginId}/>
     </div>
     </section>
   )

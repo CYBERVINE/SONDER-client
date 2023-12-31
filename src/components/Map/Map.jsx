@@ -8,12 +8,9 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove}) {
+function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove, decodedToken, getLoginId}) {
   const params = useParams()
   const mapRef = useRef(null);
-  const latitude = 49.249814;
-  const longitude = -123.1217199;
-  //lat lng on phone is .14 decimals
   const [range, setRange] = useState(0.1)
 
   const slide = mapMove !== "" ? "map__nav-button--slide" : ""
@@ -29,12 +26,16 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
       iconAnchor: [16, 32], 
       popupAnchor: [0, -32], 
     });
+
+
   
     return ( 
       <>
-
+    { coords.lat &&
       <section className="map">
-        <MapContainer className="leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} ref={mapRef} 
+
+    
+        <MapContainer className="leaf" center={[coords.lat, coords.lng]} zoom={13} zoomControl={false} ref={mapRef} 
         attributionControl={false}  style={{height: "100vh", width: "100vw"}}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -63,32 +64,38 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
             })}
 
         </MapContainer>
-
-
-        <footer className="map__nav">
-
-          <section className="map__precision"> 
-              <h3 className="map__precision-title" >Set Precison</h3>
-          {(modalActive === "" ) &&
-            <>
-              <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
-              <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
-              <button className="map__precision-button" onClick={()=>setRange(0.1)}>Low</button>
-              <p>{range}</p>
-            </>}
-          </section>
-          <Link to={'/profile/4'} className="map__nav-button">
-          View Profile
-          </Link>
         
+      
 
-          <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
-        
-              {modalActive === "" ? "Map it" : "Scrap it"} 
+          <footer className="map__nav">
 
-          </div>
-        </footer>
+            <section className="map__precision"> 
+                <h3 className="map__precision-title" >Set Precison</h3>
+            {(modalActive === "" ) &&
+              <>
+                <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
+                <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
+                <button className="map__precision-button" onClick={()=>setRange(0.1)}>Low</button>
+                <p>{range}</p>
+              </>}
+            </section>
+
+              {(sessionStorage.getItem("authToken") && !params.id) ?
+                  <Link to={`/profile/${decodedToken.id}`} className="map__nav-button">
+                  View Profile
+                  </Link> :
+                  <Link to={"/signup"} className="map__nav-button">Create a Profile</Link>
+                }
+          
+
+            <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
+          
+                {modalActive === "" ? "Map it" : "Scrap it"} 
+
+            </div>
+          </footer>
       </section>
+        }
       </>
     );
   };
