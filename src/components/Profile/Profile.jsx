@@ -44,7 +44,6 @@ function Profile ({decodedToken, getLoginId}) {
         }
     }
 
-
     useEffect(()=>{ getProfile(params)},[user.username])
     useEffect(()=>{ getLoginId()},[])
     
@@ -61,7 +60,7 @@ function Profile ({decodedToken, getLoginId}) {
                 </>
                 }
                 <div className='profile__banner'>
-                {user.avatar ? <img className='profile__avatar'  src={user.avatar} alt="avatar" /> : <img className='profile__avatar' src="../src/assets/images/smile.jpg" alt="" /> }
+                {user.avatar ? <img className='profile__avatar'  src={user.avatar} alt="avatar" /> : <img className='profile__avatar' src="../src/assets/images/anonymous.png" alt="avatar" /> }
                     <h2 className='profile__name'>{user.username}</h2>
                 </div>
                 <div className='profile__map'>

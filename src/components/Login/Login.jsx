@@ -18,7 +18,7 @@ function Login () {
         }
         )
         sessionStorage.authToken = response.data.token
-        if (response.status === 200 ){navigate('/map')}
+        if (sessionStorage.authToken){navigate('/map')}
       } catch (err) {
         console.error(err)
       }

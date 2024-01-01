@@ -80,7 +80,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
               </>}
             </section>
 
-              {(sessionStorage.getItem("authToken") && !params.id) ?
+              {(sessionStorage.getItem("authToken") !== undefined && !params.id) ?
                   <Link to={`/profile/${decodedToken.id}`} className="map__nav-button">
                   View Profile
                   </Link> :
