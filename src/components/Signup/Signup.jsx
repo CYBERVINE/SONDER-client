@@ -19,7 +19,8 @@ function Signup () {
               username: form.username.value,
               email: form.email.value,
               password: form.password.value,
-              city: form.city.value
+              city: form.city.value,
+              avatar: "http://localhost:8080/avatars/default.png"
             })
             console.dir(data)
           } catch (err) {
