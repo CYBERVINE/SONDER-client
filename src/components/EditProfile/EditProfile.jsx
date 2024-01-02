@@ -9,9 +9,9 @@ function EditProfile ({getLoginId, decodedToken}) {
   const [userDetails, setUserDetails] = useState({})
 
   async function getUserDetails () {
+    setTimeout(1000)
     const {data} = await axios.get(`${URL}/users/${decodedToken.id}/edit`)
     setUserDetails(data)
-
   }
 
   function handleEdit (e) {
@@ -46,9 +46,8 @@ function EditProfile ({getLoginId, decodedToken}) {
     makePromo()
   }
 
-  useEffect(()=>{getUserDetails()},[decodedToken.id])
+  useEffect(()=>{getUserDetails()},[decodedToken.id, userDetails.avatar])
   useEffect(()=>{getLoginId()},[])
-
 
   const[file, setFile] = useState()
     async function upload () {
@@ -56,8 +55,6 @@ function EditProfile ({getLoginId, decodedToken}) {
     formData.append('file', file)
     await axios.post(`${URL}/users/${decodedToken.id}/edit`,formData)
   }
-
-  console.log(userDetails.username)
 
   return (
 

@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import './login.scss'
 
-function Login () {
+function Login ({getLoginId}) {
   const URL = import.meta.env.VITE_BASE_URL
   const navigate = useNavigate()
   function handleSubmit (e) {
     e.preventDefault()
     async function validateUser (e) {
       const form = e.target
+
       try {
         const response = await axios.post(`${URL}/login`,
         {
@@ -18,7 +19,10 @@ function Login () {
         }
         )
         sessionStorage.authToken = response.data.token
-        if (sessionStorage.authToken){navigate('/map')}
+        if (sessionStorage.authToken && sessionStorage.authToken !== undefined){
+          getLoginId()
+          navigate('/map')
+        }
       } catch (err) {
         console.error(err)
       }
