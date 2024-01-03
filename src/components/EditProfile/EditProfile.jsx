@@ -39,7 +39,7 @@ function EditProfile ({getLoginId, decodedToken}) {
         const { data } = await axios.post(`${URL}/promos/${decodedToken.id}`,
         {
           promo: form.promo.value,
-          link: form.link.value,
+          link: form.link.value.includes("https://") ? form.link.value : form.link.value === "" ? "" : `https://${form.link.value}`,
           user_id: decodedToken.id
         })
         
@@ -67,20 +67,22 @@ function EditProfile ({getLoginId, decodedToken}) {
         <h2 className='edit__heading'>EDIT USER INFO</h2> 
 
         <section className='edit__profile'>
+          <div className='edit__avatar--section'>
           <img className='edit__avatar' src={userDetails.avatar} alt="" />
+          <label className='edit__avatar--upload'  htmlFor="avatar">Select new avatar
+            <input type="file" onChange={(e) => setFile(e.target.files[0])} name="avatar" id="avatar" />
+            </label>
+          </div>
           <div className='edit__profile--text'>
             <label className='edit__label' htmlFor="username">Edit Username here:</label>  
         {userDetails.username && <input className='edit__input edit__input--username' type="text" name="username" id="username" defaultValue={`${userDetails.username}`} /> }            
             <label className='edit__label' htmlFor="description">Update Bio here:</label>  
         {userDetails.description && <textarea className='edit__input edit__input--description' type="text" name="description" id="description" defaultValue={`${userDetails.description}`} /> }            
         
-          <label className='edit__avatar--upload'  htmlFor="avatar">Upload a new avatar
-            <input type="file" onChange={(e) => setFile(e.target.files[0])} name="avatar" id="avatar" />
-            </label>
             <button className='edit__button' type="submit">Update your profile</button>
           </div>
         </section>
-        <Link to={`/profile/${decodedToken.id}`}><h2 className='edit__heading edit__heading--view'>View Profile</h2> </Link>
+        <Link className='edit__heading--view' to={`/profile/${decodedToken.id}`}><h2 className='edit__heading'>View Profile</h2> </Link>
       </form>
       <form className='edit__form' action="submit" onSubmit={handlePromo}>
       <h2 className='edit__heading'>ADD NEW PROMO</h2>
