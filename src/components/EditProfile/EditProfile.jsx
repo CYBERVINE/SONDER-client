@@ -13,7 +13,7 @@ function EditProfile ({getLoginId, decodedToken}) {
     const {data} = await axios.get(`${URL}/users/${decodedToken.id}/edit`)
     setUserDetails(data)
   }
-
+console.log(userDetails)
   function handleEdit (e) {
     if (e.target.avatar.value){
       upload()
@@ -24,6 +24,7 @@ function EditProfile ({getLoginId, decodedToken}) {
       const { data } = await axios.post(`${URL}/users/${decodedToken.id}/edit`,
       {
         username: form.username.value,
+        description: form.description.value
       })
     }
     editUser()
@@ -32,19 +33,22 @@ function EditProfile ({getLoginId, decodedToken}) {
   function handlePromo(e) {
     e.preventDefault()
     const form = e.target
-    async function makePromo () {
-      const { data } = await axios.post(`${URL}/promos/${decodedToken.id}`,
-      {
-        promo: form.promo.value,
-        link: form.link.value,
-        user_id: decodedToken.id
-      })
-      
-      form.promo.value = ""
-      form.link.value = ""
-    }
 
-    makePromo()
+    if (form.promo.value !== "") {
+
+      async function makePromo () {
+        const { data } = await axios.post(`${URL}/promos/${decodedToken.id}`,
+        {
+          promo: form.promo.value,
+          link: form.link.value,
+          user_id: decodedToken.id
+        })
+        
+        form.promo.value = ""
+        form.link.value = ""
+      } 
+      makePromo()
+    }
   }
 
   useEffect(()=>{getUserDetails()},[decodedToken.id, userDetails.avatar])
@@ -66,8 +70,12 @@ function EditProfile ({getLoginId, decodedToken}) {
         <section className='edit__profile'>
           <img className='edit__avatar' src={userDetails.avatar} alt="" />
           <div className='edit__profile--text'>
-            <label className='edit__label' htmlFor="username">Edit username here:</label>  
-{          userDetails.username && <input className='edit__input edit__input--username' type="text" name="username" id="username" defaultValue={`${userDetails.username}`} /> }            <label className='edit__avatar--upload'  htmlFor="avatar">Upload a new avatar
+            <label className='edit__label' htmlFor="username">Edit Username here:</label>  
+        {userDetails.username && <input className='edit__input edit__input--username' type="text" name="username" id="username" defaultValue={`${userDetails.username}`} /> }            
+            <label className='edit__label' htmlFor="description">Update Bio here:</label>  
+        {userDetails.description && <textarea className='edit__input edit__input--description' type="text" name="description" id="description" defaultValue={`${userDetails.description}`} /> }            
+        
+          <label className='edit__avatar--upload'  htmlFor="avatar">Upload a new avatar
             <input type="file" onChange={(e) => setFile(e.target.files[0])} name="avatar" id="avatar" />
             </label>
             <button className='edit__button' type="submit">Update your profile</button>

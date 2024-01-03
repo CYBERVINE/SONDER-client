@@ -20,7 +20,8 @@ function Signup () {
               email: form.email.value,
               password: form.password.value,
               city: form.city.value,
-              avatar: "http://localhost:8080/avatars/anonymous.png"
+              avatar: "http://localhost:8080/avatars/anonymous.png",
+              description: "New to Sonder"
             })
             console.dir(data)
           } catch (err) {

@@ -13,7 +13,7 @@ function Profile ({decodedToken, getLoginId}) {
     const mapRef = useRef(null);
     const params = useParams()
     const id = params.id
-    console.log(params.id)
+
 
     const [user, setUser] = useState({})
     const [promos, setPromos] = useState([])
@@ -34,7 +34,6 @@ function Profile ({decodedToken, getLoginId}) {
     }
 
     async function getProfile(params){
-        console.log(params.id)
         try{
             const user = await axios.get(`http://localhost:8080/users/${params.id}`)
             const promos = await axios.get(`http://localhost:8080/promos/${params.id}`)
@@ -55,14 +54,14 @@ function Profile ({decodedToken, getLoginId}) {
     useEffect(()=>{ getLoginId()},[])
     
     return(
-        <section className='wrapper'>
+
             <main onClick={()=>{if(menu)setMenu(false)}}className={`profile ${profileFade}`}>
                 {(decodedToken?.id === user.id) && 
                 <>
                 <img onClick={()=>{menu === false ? setMenu(true) : setMenu(false)}} className="profile__menu"  src="../src/assets/images/menu.png" alt="menu" />
                 <div className={`profile__dropdown ${menu === false ? "" : "profile__dropdown--active"}`}>
                     <Link to={"/edit"} className='profile__dropdown--option'>Edit Profile</Link>
-                    <p onClick={()=>{publicView === false ? setPublicView(true) : setPublicView(false)}} className='profile__dropdown--option'>View Note Pad</p>
+                    <p onClick={()=>{publicView === false ? setPublicView(true) : setPublicView(false)}} className='profile__dropdown--option'> {publicView ? "View Note Pad" : "View Promos"}</p>
                 </div>
                 </>
                 }
@@ -88,16 +87,16 @@ function Profile ({decodedToken, getLoginId}) {
                 </div>
                     {publicView ? <h2 className='profile__title'>{`${user.description}`}</h2> : <h2  className='profile__title'>Your Note Pad</h2>}
                 <ul className='profile__feed'>
-                    {(publicView && promos.length === 0) && <li className='profile__entry profile__entry--empty'>You've added thing to promote yet!</li> }
+                    {(publicView && promos.length === 0) && <li className='profile__entry profile__entry--empty'>Nothing to promote yet!</li> }
                     {(!publicView && posts.length === 0) && <li className='profile__entry profile__entry--empty'>You've haven't mapped your inner monologue yet, so get out the and get inspiring!</li> }
                     {publicView ? promos.map(promo=>{
                         return (
                             <li  key={promo.id} className='profile__entry' >
-                                <a href={promo.link ? promo.link : "http://localhost:5173/map"}>
+                            <a className="profile__entry--link" href={promo.link ? promo.link : "http://localhost:5173/map"}>
                             {promo.promo}
                             </a>
-{                            (decodedToken?.id === user.id) && <img onClick={()=>deletePromo(promo.id)} className="profile__delete" src="../../src/assets/images/delete.svg" alt="delete" />
-}                            </li>
+                        {(decodedToken?.id === user.id) && <img onClick={()=>deletePromo(promo.id)} className="profile__delete" src="../../src/assets/images/delete.svg" alt="delete" />}
+                        </li>
                             )
                     }) : posts.map(post=> {
                         return <li key={post.id} className='profile__entry' >
@@ -106,11 +105,10 @@ function Profile ({decodedToken, getLoginId}) {
                     })}
                 </ul>
                 <div className='profile__return-container'>
-
                     <div className='profile__return' onClick={backToReality}>Back To Reality</div>
                 </div>
             </main>
-        </section>
+
     )
 }
 
