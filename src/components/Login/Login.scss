@@ -2,23 +2,11 @@
 
 .login{
   padding: 1rem;
-  // background-image: url('../../assets/images/waves.jpg');
-  // margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  // @include tablet{
-  //   margin: 1.5rem 2rem;
-  //   padding: 2rem
-  // }
-
-  // @include desktop {
-  //   margin: 2rem 4vw;
-  //   padding: 4rem 8vw;
-  // }
 
   &__form{
     @include tablet {

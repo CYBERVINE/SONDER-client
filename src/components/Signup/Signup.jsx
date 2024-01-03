@@ -1,11 +1,13 @@
 import './signup.scss'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from "axios"
 
 function Signup () {
 
   const navigate = useNavigate()
+  const [password, setPassword] = useState("")
+
   function handleSubmit (e) {
     e.preventDefault()
     async function makeUser (e) {
@@ -29,26 +31,28 @@ function Signup () {
           }
           navigate('/login')
         } else {
-          console.log("Passwords don't match, just be atleat 5 characters")  
+          setPassword("form__password")
         }
       }
       makeUser(e)
   }
   return (
     <section className="signup">
-    <form className='form' action="submit" onSubmit={handleSubmit}>
-      <h2>Signup</h2>
-      <input className='form__input'type="text" name="username" placeholder='Username' required/>
-      <input className='form__input'type="text" name="city" placeholder='Home City'  required/>
-      <input className='form__input' type="email" name="email" placeholder='Email'  required/>
-      <input className='form__input' type="password" name="password" placeholder='Password'  required/>
-      <input className='form__input' type="password" name="confirmPassword" placeholder='Confirm Password'  required/>
-      <button className='form__button' type="submit">Sign Up</button>
-      <div className='link-section'>
-      <p className='link-section__description'>Already have an account? </p><Link className='link-section__link' to={'/login'}> Login In</Link>
-      </div>
-    </form>
-  </section>
+      <form className='form' action="submit" onSubmit={handleSubmit}>
+        <h2>Signup</h2>
+        <input className='form__input'type="text" name="username" placeholder='Username' required/>
+        <input className='form__input'type="text" name="city" placeholder='Home City'  required/>
+        <input className='form__input' type="email" name="email" placeholder='Email'  required/>
+        <input className={`form__input ${password}`} type="password" name="password" placeholder='Password'/>
+        <p className={password === "" ? "none" : "display"}>Passwords must match an be at least five letters long</p>
+        <input className={`form__input ${password}`} type="password" name="confirmPassword" placeholder='Confirm Password' />
+        <p className={password === "" ? "none" : "display"}>Passwords must match and be at least five letters long</p>
+        <button className='form__button' type="submit">Sign Up</button>
+        <div className='link-section'>
+        <p className='link-section__description'>Already have an account? </p><Link className='link-section__link' to={'/login'}> Login In</Link>
+        </div>
+      </form>
+    </section>
   )
 }
 
