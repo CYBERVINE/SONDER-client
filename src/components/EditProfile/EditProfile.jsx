@@ -13,7 +13,6 @@ function EditProfile ({getLoginId, decodedToken}) {
     const {data} = await axios.get(`${URL}/users/${decodedToken.id}/edit`)
     setUserDetails(data)
   }
-console.log(userDetails)
   function handleEdit (e) {
     if (e.target.avatar.value){
       upload()
@@ -81,7 +80,7 @@ console.log(userDetails)
             <button className='edit__button' type="submit">Update your profile</button>
           </div>
         </section>
-        <Link to={`/profile/${decodedToken.id}`}><h2 className='edit__heading'>View Profile</h2> </Link>
+        <Link to={`/profile/${decodedToken.id}`}><h2 className='edit__heading edit__heading--view'>View Profile</h2> </Link>
       </form>
       <form className='edit__form' action="submit" onSubmit={handlePromo}>
       <h2 className='edit__heading'>ADD NEW PROMO</h2>

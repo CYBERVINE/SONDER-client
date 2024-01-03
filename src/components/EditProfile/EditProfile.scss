@@ -33,8 +33,28 @@
   &__heading{
     font-size: 1.2rem;
     @include tablet{
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
+
+    &--view{
+      text-align: center;
+      border: 1px solid black;
+      margin: 0.5rem 30%;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      background-color: coral;
+
+      &:hover{
+        background-color: darkmagenta;
+        color: whitesmoke;
+      }
+
+      &:active{
+        background-color: rgb(161, 6, 161);
+        color: white;
+      }
+    }
+
   }
 
   &__form{

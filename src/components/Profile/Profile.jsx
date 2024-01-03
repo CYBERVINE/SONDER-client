@@ -20,6 +20,7 @@ function Profile ({decodedToken, getLoginId}) {
     const [posts, setPosts] = useState([])
     const [menu, setMenu] = useState(false)
     const [publicView, setPublicView] = useState(true)
+    const [deletedPromoId, setDeletedPromoId] = useState(0)
 
     const [profileFade, setprofileFade] = useState("")
     const navigate = useNavigate()
@@ -46,8 +47,9 @@ function Profile ({decodedToken, getLoginId}) {
         }
     }
 
-    async function deletePromo(promoId, params){
-        const {data} = await axios.delete(`http://localhost:8080/promos/${promoId}`)
+    async function deletePromo(promoId){
+        const response = await axios.delete(`http://localhost:8080/promos/${promoId}`)
+        getProfile(params.id)
     }
 
     useEffect(()=>{ getProfile(params)},[user.username])
@@ -88,7 +90,7 @@ function Profile ({decodedToken, getLoginId}) {
                     {publicView ? <h2 className='profile__title'>{`${user.description}`}</h2> : <h2  className='profile__title'>Your Note Pad</h2>}
                 <ul className='profile__feed'>
                     {(publicView && promos.length === 0) && <li className='profile__entry profile__entry--empty'>Nothing to promote yet!</li> }
-                    {(!publicView && posts.length === 0) && <li className='profile__entry profile__entry--empty'>You've haven't mapped your inner monologue yet, so get out the and get inspiring!</li> }
+                    {(!publicView && posts.length === 0) && <li className='profile__entry profile__entry--empty'>You've haven't mapped your inner monologue yet, so get out there and get inspiring!</li> }
                     {publicView ? promos.map(promo=>{
                         return (
                             <li  key={promo.id} className='profile__entry' >
