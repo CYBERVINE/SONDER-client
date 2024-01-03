@@ -18,7 +18,7 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
     setMapMove("map-div--out")
     setTimeout(() => {
       navigate(`/profile/${userId}`)
-    }, 1400);
+    }, 800);
   }
 
   function toggleModal () {
