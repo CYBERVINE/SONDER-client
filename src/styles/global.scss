@@ -71,11 +71,7 @@ li {
   justify-content: center;
   background-color:cornsilk;
   border-radius: 2rem;
-  opacity: 0.9;
-  
-  @include desktop{
-    height: 96vh;
-  }
+
   &__label{
     font-size: 2rem;
   }

@@ -4,7 +4,7 @@ import './IndexPage.scss'
 
 function IndexPage () {
   return (
-    <>
+    <main className="index">
     <section className="index-page">
       <video className="index-page__video"src="../src/assets/videos/hero-video.mp4" loop={true} autoPlay={true} muted type="video/mp4">
       </video>
@@ -18,7 +18,7 @@ function IndexPage () {
         </footer>
 
       </div>
-    </>
+    </main>
   )
 }
 

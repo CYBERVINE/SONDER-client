@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import  { Link }from 'react-router-dom'
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router';
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios"
 
@@ -12,6 +12,8 @@ import axios from "axios"
 function Profile ({decodedToken, getLoginId}) {  
     const mapRef = useRef(null);
     const params = useParams()
+    const id = params.id
+    console.log(params.id)
 
     const [user, setUser] = useState({})
     const [promos, setPromos] = useState([])
@@ -32,6 +34,7 @@ function Profile ({decodedToken, getLoginId}) {
     }
 
     async function getProfile(params){
+        console.log(params.id)
         try{
             const user = await axios.get(`http://localhost:8080/users/${params.id}`)
             const promos = await axios.get(`http://localhost:8080/promos/${params.id}`)
@@ -42,6 +45,10 @@ function Profile ({decodedToken, getLoginId}) {
         }catch(err){
             console.error(err)
         }
+    }
+
+    async function deletePromo(promoId, params){
+        const {data} = await axios.delete(`http://localhost:8080/promos/${promoId}`)
     }
 
     useEffect(()=>{ getProfile(params)},[user.username])
@@ -79,13 +86,19 @@ function Profile ({decodedToken, getLoginId}) {
                             )})}
                     </MapContainer>
                 </div>
+                    {publicView ? <h2 className='profile__title'>{`${user.description}`}</h2> : <h2  className='profile__title'>Your Note Pad</h2>}
                 <ul className='profile__feed'>
+                    {(publicView && promos.length === 0) && <li className='profile__entry profile__entry--empty'>You've added thing to promote yet!</li> }
+                    {(!publicView && posts.length === 0) && <li className='profile__entry profile__entry--empty'>You've haven't mapped your inner monologue yet, so get out the and get inspiring!</li> }
                     {publicView ? promos.map(promo=>{
-                        return <a key={promo.id} href={promo.link ? promo.link : "http://localhost:5173/map"}>
-                            <li className='profile__entry' >
+                        return (
+                            <li  key={promo.id} className='profile__entry' >
+                                <a href={promo.link ? promo.link : "http://localhost:5173/map"}>
                             {promo.promo}
-                            </li>
                             </a>
+{                            (decodedToken?.id === user.id) && <img onClick={()=>deletePromo(promo.id)} className="profile__delete" src="../../src/assets/images/delete.svg" alt="delete" />
+}                            </li>
+                            )
                     }) : posts.map(post=> {
                         return <li key={post.id} className='profile__entry' >
                                 {post.comment}
@@ -94,7 +107,7 @@ function Profile ({decodedToken, getLoginId}) {
                 </ul>
                 <div className='profile__return-container'>
 
-                <div className='profile__return' onClick={backToReality}>Back To Reality</div>
+                    <div className='profile__return' onClick={backToReality}>Back To Reality</div>
                 </div>
             </main>
         </section>

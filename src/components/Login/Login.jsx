@@ -19,7 +19,8 @@ function Login ({getLoginId}) {
         }
         )
         sessionStorage.authToken = response.data.token
-        if (sessionStorage.authToken && sessionStorage.authToken !== undefined){
+        console.log(typeof sessionStorage.authToken)
+        if (sessionStorage.authToken && sessionStorage.authToken !== "undefined"){
           getLoginId()
           navigate('/map')
         }

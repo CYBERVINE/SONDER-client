@@ -5,17 +5,19 @@ import { useState, useEffect } from 'react'
 const URL = import.meta.env.VITE_BASE_URL
 
 function EditProfile ({getLoginId, decodedToken}) {
-
+  
   const [userDetails, setUserDetails] = useState({})
+  const [file, setFile] = useState()
 
   async function getUserDetails () {
-    setTimeout(1000)
     const {data} = await axios.get(`${URL}/users/${decodedToken.id}/edit`)
     setUserDetails(data)
   }
 
   function handleEdit (e) {
-    upload()
+    if (e.target.avatar.value){
+      upload()
+    }
     e.preventDefault()
     const form = e.target
     async function editUser () {
@@ -25,7 +27,6 @@ function EditProfile ({getLoginId, decodedToken}) {
       })
     }
     editUser()
-    getUserDetails ()
   }
 
   function handlePromo(e) {
@@ -49,7 +50,6 @@ function EditProfile ({getLoginId, decodedToken}) {
   useEffect(()=>{getUserDetails()},[decodedToken.id, userDetails.avatar])
   useEffect(()=>{getLoginId()},[])
 
-  const[file, setFile] = useState()
     async function upload () {
     const formData = new FormData()
     formData.append('file', file)
@@ -77,7 +77,6 @@ function EditProfile ({getLoginId, decodedToken}) {
       </form>
       <form className='edit__form' action="submit" onSubmit={handlePromo}>
       <h2 className='edit__heading'>ADD NEW PROMO</h2>
-            <label className='edit__label' htmlFor="promo">What do you want to promote?</label>
             <textarea className='edit__textarea' type="text" name='promo' rows="10" />
             <label className='edit__label' htmlFor="links">Add the link!</label>
             <input className='edit__input' type="text" name='link' />
