@@ -1,6 +1,17 @@
 @import '../../styles/partials.scss/breakpoints';
 
-.index-page{
+.index{
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  
+  @include tablet{
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+
+&-page{
   position: relative;
   background-color: rgb(58, 55, 55, 0.5);
   margin: 1rem;
@@ -18,7 +29,7 @@
   
   &__video{
     opacity: 0;
-    animation: hero-in 3s ease-in-out;
+    animation: hero-in 4.5s ease-in-out;
     animation-fill-mode: forwards;
     position: absolute;
     top: 0;
@@ -43,16 +54,15 @@
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    background-color: azure;
+    // background-color: azure;
+    background: linear-gradient(to top,azure 50%, rgb(240, 255, 255 ,0.6) 70%, rgb(0,0,0,0.1));
     width: 100%;
     height: 28rem;
     z-index: -5;
-    position: absolute;
-    left: 0;
-    top: 30rem;
+    position: fixed;
+    bottom: 0;
 
     @include tablet {
-      top: 25rem;
       height: 36rem
     }
     @include desktop {
@@ -62,12 +72,60 @@
   }
 
   &__footer{
-    font-weight: 700;
-    font-size: 1.5rem;
     margin: 1rem 0;
-  }
-}
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    height: 10vh;
+   
+    &--link{
+      margin-top: 0.5rem;
+      &:hover{
+        color:darkblue
+      }
+    }
 
+
+    &--links{
+      margin-top: 0.5rem;
+      display: flex;
+      // padding-bottom: 2rem;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+
+
+      @include tablet{
+        flex-direction: row;
+      }
+
+
+
+
+      @include desktop {
+        justify-content: space-around;
+      }
+    }
+   
+    &--text{
+      font-weight: 600;
+      font-size: 1rem;
+
+
+      @include tablet {
+              font-size: 1.5rem;
+      margin: 0.5rem;
+      }
+    }
+   
+    &--quote{
+      text-align: center;
+    }
+  }
+
+
+
+}}
 
 
 @keyframes hero-in {

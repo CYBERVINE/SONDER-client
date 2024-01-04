@@ -35,7 +35,7 @@
 .map-div{
   position: absolute;
   &--out{
-    animation: map 1400ms ease-in-out
+    animation: map 800ms ease-in-out
   }
 }
 
@@ -44,8 +44,13 @@
     transform: scale(1);
   }
 
+  80%{
+    transform: scale(.5);
+    opacity: 1;
+  }
+
   100%{
-    transform: scale(.5) translateY(-35vh) translateX(-10vw);
     opacity: 0.8;
+    transform: scale(.5);
   }
 }

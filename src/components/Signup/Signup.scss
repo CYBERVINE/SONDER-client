@@ -1,17 +1,26 @@
 @import '../../styles/partials.scss/breakpoints';
 
 .signup{
-  padding: 1rem;
-  background-image: url('../../assets/images/river.jpg');
-  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  // background-color: black
 
-  @include tablet{
-    margin: 1.5rem 2rem;
-    padding: 2rem
-  }
 
-  @include desktop {
-    margin: 2rem 4vw;
-    padding: 4rem 8vw;
-  }
+}
+
+.form__password{
+  border: 2px solid rgb(209, 35, 35);
+}
+
+.none{
+  display: none
+}
+
+.display{
+  font-size: 1rem;
+  display: block;
+  color: rgb(209, 35, 35);
 }

@@ -1,8 +1,8 @@
 import Login from "../../components/Login/Login"
 
-function LoginPage () {
+function LoginPage ({getLoginId}) {
   return (
-    <Login/>
+    <Login getLoginId={getLoginId}/>
   )
 }
 

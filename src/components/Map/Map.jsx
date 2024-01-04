@@ -8,7 +8,7 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove, decodedToken, getLoginId}) {
+function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove, decodedToken}) {
   const params = useParams()
   const mapRef = useRef(null);
   const [range, setRange] = useState(0.1)
@@ -80,8 +80,8 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
               </>}
             </section>
 
-              {(sessionStorage.getItem("authToken") !== undefined && !params.id) ?
-                  <Link to={`/profile/${decodedToken.id}`} className="map__nav-button">
+              {(sessionStorage.getItem("authToken") && !params.id) ?
+                  <Link to={`/profile/${decodedToken?.id}`} className="map__nav-button">
                   View Profile
                   </Link> :
                   <Link to={"/signup"} className="map__nav-button">Create a Profile</Link>

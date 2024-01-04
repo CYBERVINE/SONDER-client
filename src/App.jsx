@@ -30,14 +30,15 @@ function App() {
 
   function getLoginId () {
     const token = sessionStorage.getItem("authToken")
-    if(token){setDecodedToken(decodeToken(token))}
-}
+    if(token){setDecodedToken(decodeToken(token))
+    }
+  }
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<IndexPage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/login' element={<LoginPage decodedToken={decodedToken} getLoginId={getLoginId}/>}/>
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/profile/:id' element={<ProfilePage giveCoords={giveCoords} coords={coords} decodedToken={decodedToken} getLoginId={getLoginId}/>}/>
         <Route path='/map' element={<MapPage giveCoords={giveCoords} coords={coords} decodedToken={decodedToken} getLoginId={getLoginId}/>}/>

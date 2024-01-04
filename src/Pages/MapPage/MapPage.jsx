@@ -15,10 +15,11 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
   const navigate = useNavigate()
 
   function toggleMain (userId) { 
+    userId = userId ? userId : 1
     setMapMove("map-div--out")
     setTimeout(() => {
       navigate(`/profile/${userId}`)
-    }, 1400);
+    }, 800);
   }
 
   function toggleModal () {
