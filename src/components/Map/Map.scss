@@ -2,15 +2,7 @@
 
 .map{
   position: relative;
-  
-  // &__footer{
-  //   height: 5vh;
-  //   width: 100vw;
-  //   display: flex;
-  //   justify-content: center;
-  //   background-color: lightsalmon;
-  // }
-  
+
   &__link{
     font-weight: bold;
     color: black;
@@ -75,6 +67,7 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    height: 0;
     width: 100vw;
     padding: 0 1rem 1rem;
   }
