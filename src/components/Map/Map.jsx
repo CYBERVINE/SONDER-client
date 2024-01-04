@@ -15,7 +15,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
 
   const slide = mapMove !== "" ? "map__nav-button--slide" : ""
 
-    if(!params.id) { useEffect(()=>{getPosts()},[]),
+    if(!params.id) { useEffect(()=>{getPosts()},[posts.length]),
                      useEffect(()=>{giveCoords()},[])
         }
 

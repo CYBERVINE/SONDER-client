@@ -20,7 +20,6 @@ function Profile ({decodedToken, getLoginId}) {
     const [posts, setPosts] = useState([])
     const [menu, setMenu] = useState(false)
     const [publicView, setPublicView] = useState(true)
-    const [deletedPromoId, setDeletedPromoId] = useState(0)
 
     const [profileFade, setprofileFade] = useState("")
     const navigate = useNavigate()

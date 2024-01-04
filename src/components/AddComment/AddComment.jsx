@@ -1,6 +1,5 @@
 import './AddComment.scss'
 import axios from "axios"
-import { useState } from 'react'
 const URL = import.meta.env.VITE_BASE_URL
 
 
@@ -28,12 +27,12 @@ function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
     e.target.comment.value = ''
   }
 
-  const[file, setFile] = useState()
-  async function upload () {
-  const formData = new FormData()
-  formData.append('file', file)
-  await axios.post(`${URL}/users/${decodedToken.id}/edit`,formData)
-}
+  // const[file, setFile] = useState()
+  // async function upload () {
+  // const formData = new FormData()
+  // formData.append('file', file)
+  // await axios.post(`${URL}/users/${decodedToken.id}/edit`,formData)
+// }
 
   
   return(

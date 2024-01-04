@@ -28,8 +28,8 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
 
   }
 
-  async function getPosts () {
-
+  async function getPosts () {  
+    console.log("works")
     const {data} = await axios.get(`${URL}/posts`)
     setPosts(data)
   }
@@ -41,7 +41,7 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
     <section className="main-page">
       <div className= {`modal-div ${modalActive}`} ></div>
       <div className={`form-div ${formActive}`}>
-        <AddComment decodedToken={decodedToken} getPosts={getPosts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
+        <AddComment decodedToken={decodedToken} getPosts={getPosts} posts={posts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
       </div>
       <div className={`map-div ${mapMove}`}>
         <Map  decodedToken={decodedToken} getLoginId={getLoginId} getPosts={getPosts} posts={posts} giveCoords={giveCoords}  coords={coords} toggleMain={toggleMain} toggleModal={toggleModal} modalActive={modalActive} mapMove={mapMove}/>
