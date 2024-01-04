@@ -1,43 +1,5 @@
 @import '../../styles/partials.scss/breakpoints';
 
-.hero{
-  &__image{
-    background-image: url("../../src/assets/images/hero-image.png");
-    object-fit: contain;
-    object-position: center;
-    height: 13rem;
-    width: 100%;
-    position: relative;
-    margin: 1rem 0;
-  }
-  
-  &__text{
-    position: absolute;
-    font-size: 1.5rem;
-    top: 20%;
-    left: 5%
-  }
-
-  &__gif{
-    border-radius: 100%;
-    border: none;
-    opacity: 0;
-    animation: fade-in-planet 2s;
-    animation-delay: 800ms;
-    animation-fill-mode: forwards;
-
-    &--container{
-      display: flex;
-      justify-content: center;
-      width: 100%;
-
-      @include tablet{
-        margin: 3rem 0;
-      }
-    }
-  }
-}
-
 .header{
   min-height: 25rem;
   display: flex;
@@ -57,32 +19,25 @@
     opacity: 0;
     
     &--one{
-      animation: fade-in-one 2s;
-      animation-delay: 550ms;
+      animation: fade-in-one 5s;
+      animation-delay: 2000ms;
       animation-fill-mode: forwards;
     }
     
     &--two{
       animation: fade-in-two 4s;
-      animation-delay: 600ms;
+      animation-delay: 3000ms;
       animation-fill-mode: forwards;
       
     }
     &--three{
-      animation: fade-in-three 5s;
-      animation-delay: 600ms;
+      animation: fade-in-three 8s;
+      animation-delay: 3500ms;
       animation-fill-mode: forwards;
     }
   }
 }
-  @keyframes fade-in-planet {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 0.6;
-  }
-}
+
 @keyframes fade-in-one {
   0%{
     opacity: 0;
@@ -95,7 +50,7 @@
   0%{
     opacity: 0;
   }
-  50%{
+  40%{
     opacity: 0;
   }
   100%{
@@ -106,7 +61,7 @@
   0%{
     opacity: 0;
   }
-  80%{
+  50%{
     opacity: 0;
   }
   100%{
@@ -177,13 +132,13 @@
   opacity: 0;
 
   &__one{
-    animation: blink 1400ms 6000ms ease-in-out infinite;
+    animation: blink 1800ms 10100ms ease-in-out infinite;
   }
   &__two{
-    animation: blink 1400ms 6333ms ease-in-out infinite;
+    animation: blink 1800ms 10433ms ease-in-out infinite;
   }
   &__three{
-    animation: blink 1400ms 6666ms ease-in-out infinite;
+    animation: blink 1800ms 10766ms ease-in-out infinite;
   }
 }
 
