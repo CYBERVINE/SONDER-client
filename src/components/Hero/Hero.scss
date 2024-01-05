@@ -10,6 +10,7 @@
     
     text-align: center;
     margin-bottom: 0.5rem;
+    font-weight: 500;
     
     @include tablet{
       margin: 3rem 0;
@@ -103,6 +104,17 @@
   &__anonymous{
     background-color: black;
     color: white;
+
+    &--text{
+      margin: 0.75rem;
+    }
+
+    &:hover{
+      color: gold;
+      background-color:midnightblue;
+      border: 1px solid midnightblue;
+      opacity: .9;
+    }
   }
 
   &__known{
@@ -111,16 +123,33 @@
     justify-content: space-around;
     align-items: center;
     background-color: beige;
+    font-weight: 200;
 
+    &:hover{
+      opacity: .9;
+    }
+    
+    &--text{
+      font-weight: 500;
+      padding: 1rem;
+      &:hover{
+        font-weight: 700;
+        color: gold;
+      }
+    }
   }
 }
 
 .ellpses{
-  margin-top: 3rem;
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 0.75rem
+  padding: 0.75rem;
+  
+  @include desktop{
+    margin-top: 3rem;
+
+  }
 
 }
 

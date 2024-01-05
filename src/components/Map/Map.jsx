@@ -35,7 +35,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
       <section className="map">
 
     
-        <MapContainer className="leaf" center={[coords.lat, coords.lng]} zoom={13} zoomControl={false} ref={mapRef} 
+        <MapContainer className="leaf" center={[coords.lat, coords.lng]} zoom={15} zoomControl={false} ref={mapRef} 
         attributionControl={false}  style={{height: "100vh", width: "100vw"}}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -81,16 +81,16 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
             </section>
 
               {(sessionStorage.getItem("authToken") && !params.id) ?
-                  <Link to={`/profile/${decodedToken?.id}`} className="map__nav-button">
+                  <p onClick={()=>toggleMain(decodedToken?.id)} className="map__nav-button">
                   View Profile
-                  </Link> :
-                  <Link to={"/signup"} className="map__nav-button">Create a Profile</Link>
+                  </p> :
+                  <Link to={"/signup"} className="map__nav-button">Create Profile</Link>
                 }
           
 
             <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
           
-                {modalActive === "" ? "Map it" : "Scrap it"} 
+                {modalActive === "" ? "Make Post" : "ERASE"} 
 
             </div>
           </footer>

@@ -69,7 +69,14 @@
     align-items: flex-end;
     height: 0;
     width: 100vw;
-    padding: 0 1rem 1rem;
+
+    @include tablet {
+      padding: 0 2rem
+    }
+    @include desktop {
+      padding: 0 10rem
+    }
+
   }
 
   &__precision{
@@ -95,7 +102,6 @@
       @include tablet{
         font-size: 1.6rem;
       }
-
     }
 
     &-button{
@@ -132,6 +138,10 @@
       margin: 2rem;
       padding: 1.5rem;
       font-size: 1.4rem;
+    }
+
+    @include desktop{
+      font-size: 2rem;
     }
 
     &--shrink{

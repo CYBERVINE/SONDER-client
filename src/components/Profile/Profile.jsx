@@ -68,7 +68,10 @@ function Profile ({decodedToken, getLoginId}) {
                 }
                 <div className='profile__banner'>
                 {user.avatar ? <img className='profile__avatar'  src={user.avatar} alt="avatar" /> : <img className='profile__avatar' src="../src/assets/images/anonymous.png" alt="avatar" /> }
-                    <h2 className='profile__name'>{user.username}</h2>
+                    <div>
+                    <h2 className='profile__heading'>{user.username}</h2>
+                    <p className='profile__heading profile__description'>{`${user.description}`}</p>
+                    </div>
                 </div>
                 <div className='profile__map'>
                     <MapContainer className="profile_leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} attributionControl={false} ref={mapRef} style={{height: "30vh", width: "100%"}}>
@@ -86,7 +89,7 @@ function Profile ({decodedToken, getLoginId}) {
                             )})}
                     </MapContainer>
                 </div>
-                    {publicView ? <h2 className='profile__title'>{`${user.description}`}</h2> : <h2  className='profile__title'>Your Note Pad</h2>}
+                    {publicView ? <h2 className='profile__title'>Promos</h2> : <h2  className='profile__title'>Your Past Thoughts</h2>}
                 <ul className='profile__feed'>
                     {(publicView && promos.length === 0) && <li className='profile__entry profile__entry--empty'>Nothing to promote yet!</li> }
                     {(!publicView && posts.length === 0) && <li className='profile__entry profile__entry--empty'>You've haven't mapped your inner monologue yet, so get out there and get inspiring!</li> }

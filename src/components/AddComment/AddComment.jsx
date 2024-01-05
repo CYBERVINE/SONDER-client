@@ -3,7 +3,7 @@ import axios from "axios"
 const URL = import.meta.env.VITE_BASE_URL
 
 
-function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
+function CommentsModal({getPosts, posts, coords, toggleModal, decodedToken}){
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -14,7 +14,7 @@ function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
           lat: coords.lat,
           lng: coords.lng,
           comment: e.target.comment.value,
-          user_id: decodedToken.id
+          user_id: decodedToken.id || 1
         })
 
       } catch (err) {
@@ -26,13 +26,6 @@ function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
     toggleModal()
     e.target.comment.value = ''
   }
-
-  // const[file, setFile] = useState()
-  // async function upload () {
-  // const formData = new FormData()
-  // formData.append('file', file)
-  // await axios.post(`${URL}/users/${decodedToken.id}/edit`,formData)
-// }
 
   
   return(
