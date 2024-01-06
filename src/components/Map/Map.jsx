@@ -21,12 +21,12 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
 
 
     const customIcon = new L.Icon({
-      iconUrl: '../../src/assets/images/yellow.png',
-      iconSize: [18, 18], 
+      iconUrl: '../../src/assets/images/giphy.gif',
+      iconSize: [40, 40], 
       iconAnchor: [16, 32], 
       popupAnchor: [0, -32], 
+      className: "map__marker"
     });
-
 
   
     return ( 
@@ -46,7 +46,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
 
             {posts && posts.map((comment) => {
               return (
-                <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon}>
+                <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon} className="map__marker">
                     <Popup>
                         <section className="map__popup">
                           {(Math.abs(comment.lat - coords.lat) < range) && (Math.abs(comment.lng - coords.lng) < range) ? 

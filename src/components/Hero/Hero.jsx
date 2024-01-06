@@ -8,8 +8,7 @@ function Hero () {
 
     <h1 className="header__line header__line--one">THE WORLD IS THE POST</h1>
     <h1 className="header__line header__line--two">AND THIS IS THE COMMENT SECTION</h1>
-     <div className="hero__gif--container">
-    </div> 
+    <h1 className="header__line--sonder">SONDER</h1>
     <h1 className="header__line header__line--three">MAP YOUR INNER MONOLOGUE</h1>
     </div>
     <section className="enterance">

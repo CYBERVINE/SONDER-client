@@ -22,6 +22,16 @@
     }
   }
 
+  &__marker{
+    border-radius: 100%;
+    border: 1px solid gold;
+    box-shadow: 0.75rem 0.75rem 0.75rem black;
+    
+    &:hover{
+      border: 5px solid gold;
+    }
+  }
+
   &__popup{
     width: 10rem;
 
@@ -116,6 +126,7 @@
 
       &:hover{
         cursor: pointer;
+        color: wheat;
       }
     }
   }
@@ -132,6 +143,8 @@
 
     &:hover{
       cursor: pointer;
+      border: 2px solid grey
+
     }
 
     @include tablet {

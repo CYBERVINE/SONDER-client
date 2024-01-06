@@ -9,7 +9,7 @@ import axios from "axios"
 
 
 
-function Profile ({decodedToken, getLoginId}) {  
+function Profile ({giveCoords, coords, decodedToken, getLoginId}) {  
     const mapRef = useRef(null);
     const params = useParams()
     const id = params.id
@@ -25,6 +25,15 @@ function Profile ({decodedToken, getLoginId}) {
     const navigate = useNavigate()
     const latitude = 49.249814;
     const longitude = -123.1217199;
+
+    const customIcon = new L.Icon({
+        iconUrl: '../../src/assets/images/giphy.gif',
+        iconSize: [40, 40], 
+        iconAnchor: [16, 32], 
+        popupAnchor: [0, -32], 
+        className: "map__marker"
+      });
+  
 
     function backToReality () {
         setprofileFade("profile--fade")
@@ -53,6 +62,7 @@ function Profile ({decodedToken, getLoginId}) {
 
     useEffect(()=>{ getProfile(params)},[user.username])
     useEffect(()=>{ getLoginId()},[])
+    useEffect(()=>{ giveCoords()},[])
     
     return(
 
@@ -74,7 +84,7 @@ function Profile ({decodedToken, getLoginId}) {
                     </div>
                 </div>
                 <div className='profile__map'>
-                    <MapContainer className="profile_leaf" center={[latitude, longitude]} zoom={13} zoomControl={false} attributionControl={false} ref={mapRef} style={{height: "30vh", width: "100%"}}>
+{ coords.lat &&                   <MapContainer className="profile_leaf" center={[coords.lat, coords.lng]} zoom={13} zoomControl={false} attributionControl={false} ref={mapRef} style={{height: "30vh", width: "100%"}}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url='https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
@@ -83,13 +93,13 @@ function Profile ({decodedToken, getLoginId}) {
                             />
                             { posts && posts.map((comment) => {
                                 return (
-                                    <Marker key={comment.id} position={[comment.lat, comment.lng]} >
+                                    <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon}>
                                         
                                     </Marker>
                             )})}
-                    </MapContainer>
+                    </MapContainer>}
                 </div>
-                    {publicView ? <h2 className='profile__title'>Promos</h2> : <h2  className='profile__title'>Your Past Thoughts</h2>}
+                    {publicView ? <h2 className='profile__title'>| EVENTS | OFFERS | INTERESTS |</h2> : <h2  className='profile__title'>Your Past Thoughts</h2>}
                 <ul className='profile__feed'>
                     {(publicView && promos.length === 0) && <li className='profile__entry profile__entry--empty'>Nothing to promote yet!</li> }
                     {(!publicView && posts.length === 0) && <li className='profile__entry profile__entry--empty'>You've haven't mapped your inner monologue yet, so get out there and get inspiring!</li> }

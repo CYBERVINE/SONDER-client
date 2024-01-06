@@ -13,7 +13,7 @@
     font-weight: 500;
     
     @include tablet{
-      margin: 3rem 0;
+      margin: 2rem 0;
       font-size: 3rem;
     }
     
@@ -35,6 +35,23 @@
       animation: fade-in-three 8s;
       animation-delay: 3500ms;
       animation-fill-mode: forwards;
+    }
+
+    &--sonder{
+      font-size: 2.5rem;
+      letter-spacing: 0.5rem;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      animation: fade-in-four 9s;
+      animation-delay: 3500ms;
+      animation-fill-mode: forwards;
+      text-align: center;
+      opacity: 0;
+      
+      @include tablet{
+        
+        font-size: 4.5rem;
+        letter-spacing: 1rem;
+      }
     }
   }
 }
@@ -63,6 +80,17 @@
     opacity: 0;
   }
   50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fade-in-four {
+  0%{
+    opacity: 0;
+  }
+  80%{
     opacity: 0;
   }
   100%{
@@ -111,9 +139,7 @@
 
     &:hover{
       color: gold;
-      background-color:midnightblue;
-      border: 1px solid midnightblue;
-      opacity: .9;
+      opacity: .97;
     }
   }
 
@@ -125,13 +151,9 @@
     background-color: beige;
     font-weight: 200;
 
-    &:hover{
-      opacity: .9;
-    }
-    
     &--text{
       font-weight: 500;
-      padding: 1rem;
+      padding: 1rem 3rem;
       &:hover{
         font-weight: 700;
         color: gold;

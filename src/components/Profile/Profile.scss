@@ -3,7 +3,7 @@
 .profile{
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 99.5vw;
   border-radius: 1rem;
   background: linear-gradient( to bottom, #b0d8b0, #EEF4ED) ;
 
@@ -73,6 +73,7 @@
     height: 6rem;
     width: 6rem;
     background-color: aliceblue;
+    border: 2px solid black;
     border-radius: 100%;
     margin: 1rem;
     object-fit: cover;
@@ -84,7 +85,9 @@
   }
   
   &__map{
-    padding: 1rem 1rem 0 1rem;
+    margin: 1rem 1rem 0 1rem;
+    border: 5px solid black;
+    border-radius: 2.3rem;
   }
   
   &__title{
@@ -109,9 +112,9 @@
   }
 
   &__feed{
+    background-color: black;
     margin: 1rem 0;
-    padding: 1rem 0;
-    border-top: 1px dashed grey;
+    border: 3px solid black;
     max-height: 25rem;
     overflow: auto;
 
@@ -119,9 +122,8 @@
   }
 
   &__entry{
-    background-color: #F9F4F1;
-    margin: 0.25rem 0;
-    padding: 1rem;
+    background-color: azure;
+    padding: 1rem 2.5rem;
     box-shadow: 0.25rem 0.25rem 1rem grey;
     border-radius: 0.25rem;
     border: 1px solid black;

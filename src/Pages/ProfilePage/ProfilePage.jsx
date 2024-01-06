@@ -9,7 +9,7 @@ function ProfilePage ({giveCoords, coords, decodedToken, getLoginId}) {
       <Map giveCoords={giveCoords} coords={coords}/>
     </div>
     <div className='profile-page__profile'>
-      <Profile  decodedToken={decodedToken} getLoginId={getLoginId}/>
+      <Profile  giveCoords={giveCoords} coords={coords}  decodedToken={decodedToken} getLoginId={getLoginId}/>
     </div>
     </section>
   )
