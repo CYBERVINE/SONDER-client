@@ -63,9 +63,8 @@ function EditProfile ({getLoginId, decodedToken}) {
 
     <main className='edit'>
       <div className='edit__wrapper'>
-      <form className='edit__form' action="submit" onSubmit={handleEdit}>
+      <form className='edit__form edit__form--profile' action="submit" onSubmit={handleEdit}>
         <h2 className='edit__heading'>EDIT USER INFO</h2> 
-
         <section className='edit__profile'>
           <div className='edit__avatar--section'>
           <img className='edit__avatar' src={userDetails.avatar} alt="" />
@@ -78,12 +77,11 @@ function EditProfile ({getLoginId, decodedToken}) {
         {userDetails.username && <input className='edit__input edit__input--username' type="text" name="username" id="username" defaultValue={`${userDetails.username}`} /> }            
             <label className='edit__label' htmlFor="description">Update Bio here:</label>  
         {userDetails.description && <textarea className='edit__input edit__input--description' type="text" name="description" id="description" defaultValue={`${userDetails.description}`} /> }            
-        
-            <button className='edit__button' type="submit">Update your profile</button>
           </div>
         </section>
-        <Link className='edit__heading--view' to={`/profile/${decodedToken.id}`}><h2 className='edit__heading'>View Profile</h2> </Link>
+          <button className='edit__button' type="submit">Save Changes</button>
       </form>
+        <Link className='edit__heading--view' to={`/profile/${decodedToken.id}`}><h2 className='edit__heading'>View Profile</h2> </Link>
       <form className='edit__form' action="submit" onSubmit={handlePromo}>
       <h2 className='edit__heading'>ADD NEW PROMO</h2>
             <textarea className='edit__textarea' type="text" name='promo' rows="10" />

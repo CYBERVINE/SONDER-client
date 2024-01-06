@@ -188,11 +188,20 @@
 
   &__return{
     background-color: black;
+    border: 1px solid black;
     color: #EEF4ED;
     padding: 0.5rem;
 
     &:hover{
       cursor: pointer;
+      color: gold;
+      opacity: 0.8;
+      border: 1px solid gold;
+      font-size: 1.52rem;
+    }
+    
+    &:active{
+      font-size: 1.4rem;
     }
 
     @include tablet {

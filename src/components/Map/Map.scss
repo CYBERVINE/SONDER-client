@@ -9,12 +9,12 @@
     font-size: 1rem;
     padding: 1rem;
     background-color: lightsalmon;
-    border: 1px solid black;
+    border: 2px solid black;
 
     &:hover{
       cursor: pointer;
       border: 1px solid gold;
-      color: beige;
+      background-color: beige;
     }
 
     &:focus{
@@ -90,15 +90,15 @@
   }
 
   &__precision{
-
+    color: white;
     bottom: 1rem;
-    background-color: rgb(90, 179, 90);
+    background-color: black;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0.25rem;
-    border: 2px solid black;
+    border: 2px solid grey;
     width: 5rem;
     font-size: 0.5rem;
 
@@ -115,8 +115,9 @@
     }
 
     &-button{
-      background-color: lightslategray;
-      border: none;
+      color: wheat;
+      background-color: green;
+      border: 1px solid gold;
       width: 100%;
       margin: 0.25rem;
       font-size: 0.9rem;
@@ -126,7 +127,7 @@
 
       &:hover{
         cursor: pointer;
-        color: wheat;
+        color: white;
       }
     }
   }
@@ -134,16 +135,17 @@
  
 
   &__nav-button{
-    color: white;
+    color: whitesmoke;
     background-color: black;
-    border: 2px solid gold;
+    border: 2px solid grey;
     border-radius: 40%;
     font-size: 1rem;
     padding: 0.5rem;
 
     &:hover{
       cursor: pointer;
-      border: 2px solid grey
+      color: white;
+      border: 2px solid gold
 
     }
 

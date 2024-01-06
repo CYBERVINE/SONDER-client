@@ -51,7 +51,7 @@ function Signup () {
         <div className='link-section'>
         <p className='link-section__description'>Already have an account? </p><Link className='link-section__link' to={'/login'}> Login In</Link>
         </div>
-        <p>"It's hard to walk a mile, but let's share a step"</p>
+        <p>"It's hard to walk a mile, we can share a step"</p>
       </form>
     </section>
   )
