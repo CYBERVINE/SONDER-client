@@ -82,12 +82,13 @@
     align-items: flex-end;
     height: 0;
     width: 100vw;
+    padding: 0 2rem 0 0;
 
     @include tablet {
       padding: 0 2rem
     }
     @include desktop {
-      padding: 0 10rem
+      padding: 0 10rem 0 12.4rem
     }
 
   }
@@ -102,7 +103,7 @@
     align-items: center;
     padding: 0.25rem;
     border: 2px solid grey;
-    width: 5rem;
+    width: 7rem;
     font-size: 0.5rem;
 
     @include tablet {
@@ -111,6 +112,7 @@
       width: 10rem;
     }
     &-title{
+      font-size: 1rem;
 
       @include tablet{
         font-size: 1.6rem;
@@ -140,15 +142,16 @@
   &__nav-button{
     color: whitesmoke;
     background-color: black;
-    border: 2px solid grey;
+    border: 4px solid grey;
     border-radius: 40%;
     font-size: 1rem;
     padding: 0.5rem;
 
+    
     &:hover{
       cursor: pointer;
       color: white;
-      border: 2px solid gold
+      border: 4px solid gold
 
     }
 
@@ -157,41 +160,50 @@
       padding: 1.5rem;
       font-size: 1.4rem;
     }
-
+    
     @include desktop{
       font-size: 2rem;
     }
+    
+    &--collapse{
+      color:rgb(128, 128, 128, 0);
+      padding: 0 .8rem;
 
-    &--shrink{
-      top:1.25rem;
-      animation: shrink 1s;
+      @include tablet{
+        padding: 0 3.3rem ;
+
+      }
     }
+    // &--shrink{
+    //   top:1.25rem;
+    //   animation: shrink 1s;
+    // }
 
-    &--slide{
-      animation: slide 1400ms ease-out;
-    }
+    // &--slide{
+    //   animation: slide 1400ms ease-out;
+    // }
   }
 
 }
 
-@keyframes shrink {
-  100%{
-    scale: 0;
-  }
-}
+// @keyframes shrink {
+//   100%{
+//     scale: 0;
+//   }
+// }
 
-@keyframes slide {
-  0%{
-    bottom: 1.25rem;
-  }
-  70%{
-    scale: (1);
-  }
-  100%{
-    scale: (.8);
-    bottom: 80%;
-  }
-}
+// @keyframes slide {
+//   0%{
+//     bottom: 1.25rem;
+//   }
+//   70%{
+//     scale: (1);
+//   }
+//   100%{
+//     scale: (.8);
+//     bottom: 80%;
+//   }
+// }
 
 @keyframes button {
   0%{

@@ -9,12 +9,12 @@ import './Map.scss'
 
 
 
-function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, mapMove, decodedToken}) {
+function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, decodedToken}) {
   const params = useParams()
   const mapRef = useRef(null);
   const [range, setRange] = useState(0.1)
 
-  const slide = mapMove !== "" ? "map__nav-button--slide" : ""
+  // const slide = mapMove !== "" ? "map__nav-button--slide" : ""
 
     if(!params.id) { useEffect(()=>{getPosts()},[posts.length]),
                      useEffect(()=>{giveCoords()},[])
@@ -90,11 +90,12 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                 }
           
 
-            <div onClick={toggleModal} className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}>
-          
-                {modalActive === "" ? "Make Post" : "ERASE"} 
-
-            </div>
+            <p onClick={toggleModal} 
+            // className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}
+            className={`map__nav-button ${modalActive === "" ? "" : "map__nav-button--collapse"}`}
+            >
+                {modalActive === "" ? "make post" : "ERASE"}
+            </p>
           </footer>
       </section>
         }

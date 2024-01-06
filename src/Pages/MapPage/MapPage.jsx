@@ -39,7 +39,7 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
 
   return (
     <section className="main-page">
-      <div className= {`modal-div ${modalActive}`} ></div>
+      <div onClick={toggleModal} className= {`modal-div ${modalActive}`} ></div>
       <div className={`form-div ${formActive}`}>
         <AddComment decodedToken={decodedToken} getPosts={getPosts} posts={posts} giveCoords={giveCoords} coords={coords} toggleModal={toggleModal}/>
       </div>

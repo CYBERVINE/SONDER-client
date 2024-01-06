@@ -33,7 +33,7 @@ function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
     <section >
         <form className='add-comment__form add-comment__font' action="submit" onSubmit={handleSubmit}>
           <label  className='add-comment__label' htmlFor="comment">INSPIRED?</label>
-          <textarea className='add-comment__comment add-comment__font' type="text" name="comment"rows="15"/>
+          <textarea className='add-comment__comment add-comment__font' type="text" name="comment"rows="17"/>
           <button className='add-comment__submit add-comment__font' type="submit">MAP YOUR MIND</button>
         </form>
     </section>
