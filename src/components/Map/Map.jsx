@@ -21,7 +21,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
         }
 
     const customIcon = new L.Icon({
-      iconUrl: '../../src/assets/images/giphy.gif',
+      iconUrl: '../../src/assets/images/sonderance.gif',
       iconSize: [40, 40], 
       iconAnchor: [16, 32], 
       popupAnchor: [0, -32], 

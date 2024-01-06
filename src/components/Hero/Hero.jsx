@@ -13,8 +13,8 @@ function Hero () {
     </div>
     <section className="enterance">
       <Link to={'/map'} className="enterance__anonymous enterance__card">
-        <p className="enterance__anonymous--text"> post</p>
-        <p className="enterance__anonymous--text"> anonymously</p>
+        <p className="enterance__anonymous--text"> view map</p>
+        <p className="enterance__anonymous--text"> post anonymously</p>
         {/* <p className="enterance__anonymous--text">keep it local</p> */}
         <div className="ellpses">
           <div className="ellpsis ellpsis__one"></div>
