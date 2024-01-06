@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import { useParams } from "react-router";
+import MarkerClusterGroup from 'react-leaflet-cluster'
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
@@ -26,7 +27,6 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
       popupAnchor: [0, -32], 
       className: "map__marker"
     });
-
   
     return ( 
       <>
@@ -42,7 +42,9 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
             maxZoom= {20}
             subdomains={['mt1','mt2','mt3']}
             />
-
+            <MarkerClusterGroup
+             maxClusterRadius={23} 
+             >
             {posts && posts.map((comment) => {
               return (
                 <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon} className="map__marker">
@@ -55,12 +57,13 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                           </>
                           : 
                           <p
-                            className="map__comment">You're not close enough yet to see the thoughts this place inspired.</p>}
+                          className="map__comment">You're not close enough yet to see the thoughts this place inspired.</p>}
                       </section>
                     </Popup>
                 </Marker>
               )
             })}
+            </MarkerClusterGroup>
 
         </MapContainer>
         
