@@ -29,11 +29,11 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
   }
 
   async function getPosts () {  
-    console.log("works")
     const {data} = await axios.get(`${URL}/posts`)
+    console.log(data)
     setPosts(data)
   }
-
+  
   useEffect(()=>toggleModal,[])
   useEffect(()=>getLoginId(),[])
 

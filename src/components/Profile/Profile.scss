@@ -83,22 +83,30 @@
       width: 10rem;
     }
   }
+
+  &__info{
+    border-left: 5px solid grey;
+    height: 8rem;
+    margin-left: 1rem;
+  }
   
   &__map{
     margin: 1rem 1rem 0 1rem;
     border: 5px solid black;
-    border-radius: 2.3rem;
+    border-radius: 6.2rem;
   }
   
   &__title{
     text-align: center;
     font-size: 1.7rem;
+    margin: 1rem 0 1.25rem 0;
     @include tablet{
       font-size: 2.2rem;
     }
   }
 
   &__heading{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -112,16 +120,17 @@
   }
 
   &__feed{
-    background-color: black;
     margin: 1rem 0;
-    border: 3px solid black;
     max-height: 25rem;
     overflow: auto;
+    border-radius: 0.35rem;
+    padding: 1rem;
 
 
   }
 
   &__entry{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: azure;
     padding: 1rem 2.5rem;
     box-shadow: 0.25rem 0.25rem 1rem grey;
@@ -131,6 +140,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 2rem;
+    margin: 0.5rem;
   
       font-weight: 500; 
 
@@ -188,16 +198,12 @@
 
   &__return{
     background-color: black;
-    border: 1px solid black;
     color: #EEF4ED;
     padding: 0.5rem;
 
     &:hover{
       cursor: pointer;
       color: gold;
-      opacity: 0.8;
-      border: 1px solid gold;
-      font-size: 1.52rem;
     }
     
     &:active{

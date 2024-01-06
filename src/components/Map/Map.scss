@@ -6,15 +6,17 @@
   &__link{
     font-weight: bold;
     color: black;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 1rem;
-    background-color: lightsalmon;
-    border: 2px solid black;
+    background-color: gold;
+    border: 1px solid gold;
+    border-radius: 0.25rem;
 
     &:hover{
       cursor: pointer;
-      border: 1px solid gold;
-      background-color: beige;
+      background-color: black;
+      color: gold;
+      border: 1px solid white;
     }
 
     &:focus{
@@ -33,15 +35,15 @@
   }
 
   &__popup{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 3.15rem;
     width: 10rem;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: lightcyan;
     color: #333333;
-    border: 1px solid black;
-    padding: 0.25rem;
+    padding: 3rem 1rem;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
@@ -55,6 +57,7 @@
 
   &__comment{
     font-weight: 700;
+    margin: 0;
 
     @include tablet{
       font-size: 1.5rem;
@@ -198,6 +201,6 @@
     background-color: aqua;
   }
   100%{
-    background-color: lightsalmon;
+    background-color: gold;
   }
 }

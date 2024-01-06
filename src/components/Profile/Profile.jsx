@@ -78,7 +78,7 @@ function Profile ({giveCoords, coords, decodedToken, getLoginId}) {
                 }
                 <div className='profile__banner'>
                 {user.avatar ? <img className='profile__avatar'  src={user.avatar} alt="avatar" /> : <img className='profile__avatar' src="../src/assets/images/anonymous.png" alt="avatar" /> }
-                    <div>
+                    <div className='profile__info'>
                     <h2 className='profile__heading'>{user.username}</h2>
                     <p className='profile__heading profile__description'>{`${user.description}`}</p>
                     </div>

@@ -19,7 +19,6 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                      useEffect(()=>{giveCoords()},[])
         }
 
-
     const customIcon = new L.Icon({
       iconUrl: '../../src/assets/images/giphy.gif',
       iconSize: [40, 40], 
@@ -52,7 +51,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                           {(Math.abs(comment.lat - coords.lat) < range) && (Math.abs(comment.lng - coords.lng) < range) ? 
                           <>
                           <p className="map__comment">{comment.comment}</p> 
-                          <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THAT THOUGHT!</button>
+                          <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THIS THOUGHT!</button>
                           </>
                           : 
                           <p

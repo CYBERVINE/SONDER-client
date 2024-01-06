@@ -4,7 +4,7 @@
   background: linear-gradient( to top, #b0d8b0, #EEF4ED) ;
 
   @include tablet {
-    height: 96vh;
+    height: 100%;
     width: 96vw;
     margin: 2vh 2vw;
   }
@@ -102,21 +102,15 @@
   }
 
   &__avatar{
-    
-    width: 8rem;  
-    height: 6rem;
+    width: 15rem;  
+    height: 13rem;
+    padding: 1rem;
     border-radius: 1rem;
     object-fit: cover;
     object-position: 25%;
     border: 4px solid black;
     background: linear-gradient( to bottom, #b0d8b0, #EEF4ED) ;
 
-    
-    @include tablet{
-      width: 15rem;  
-      height: 13rem;
-      padding: 1rem;
-    }
 
     &--section{
       display: flex;
