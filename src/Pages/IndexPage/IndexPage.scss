@@ -54,17 +54,13 @@
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    // background-color: azure;
     background: linear-gradient(to top,azure 50%, rgb(240, 255, 255 ,0.6) 70%, rgb(0,0,0,0.1));
+    height: 45rem;
     width: 100%;
-    height: 28rem;
     z-index: -5;
     position: fixed;
     bottom: 0;
 
-    @include tablet {
-      height: 36rem
-    }
     @include desktop {
       height: 41rem
     }
@@ -89,7 +85,7 @@
     &--links{
       margin-top: 0.5rem;
       display: flex;
-      // padding-bottom: 2rem;
+      padding-bottom: 2rem;
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
@@ -98,9 +94,6 @@
       @include tablet{
         flex-direction: row;
       }
-
-
-
 
       @include desktop {
         justify-content: space-around;
@@ -113,8 +106,8 @@
 
 
       @include tablet {
-              font-size: 1.5rem;
-      margin: 0.5rem;
+        font-size: 1.5rem;
+        margin: 0.5rem;
       }
     }
    

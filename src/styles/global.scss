@@ -7,7 +7,7 @@
 }
 
 body{
-  background-image: url('../assets/images/body1.webp');
+  background-image: url('../assets/images/body.webp');
   object-fit: fill;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -42,7 +42,7 @@ li {
 }
 
 .leaflet-container {
-  border-radius: 2rem;
+  border-radius: 6rem;
 }
 
 .leaflet-popup-content-wrapper{
@@ -54,6 +54,8 @@ li {
   }
 
 }
+
+
 .leaflet-popup-tip-container{
   display: none;
 }
@@ -151,15 +153,15 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 1rem;             
+  width: .6rem;             
 }
 
 ::-webkit-scrollbar-track {
-  background: white;       
+  background: linear-gradient( to bottom, #b0d8b0, #EEF4ED)       
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: black;    
   border-radius: 3rem;   
-  border: 0.3rem solid white;  
+  border: 1px solid white;  
 }

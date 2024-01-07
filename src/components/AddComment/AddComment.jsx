@@ -1,6 +1,5 @@
 import './AddComment.scss'
 import axios from "axios"
-import { useState } from 'react'
 const URL = import.meta.env.VITE_BASE_URL
 
 
@@ -15,7 +14,7 @@ function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
           lat: coords.lat,
           lng: coords.lng,
           comment: e.target.comment.value,
-          user_id: decodedToken.id
+          user_id: decodedToken.id || 1
         })
 
       } catch (err) {
@@ -23,25 +22,19 @@ function CommentsModal({getPosts, coords, toggleModal, decodedToken}){
       }
     }
     post()
-    getPosts()
+    setTimeout(()=>getPosts(),100)
+    
     toggleModal()
     e.target.comment.value = ''
   }
 
-  const[file, setFile] = useState()
-  async function upload () {
-  const formData = new FormData()
-  formData.append('file', file)
-  await axios.post(`${URL}/users/${decodedToken.id}/edit`,formData)
-}
-
   
   return(
     <section >
-        <form className='add-comment__form' action="submit" onSubmit={handleSubmit}>
-          <label  className='add-comment__label' htmlFor="comment">Inspired?</label>
-          <textarea className='add-comment__comment' type="text" name="comment"rows="7"/>
-          <button className='add-comment__submit' type="submit">Map your mind</button>
+        <form className='add-comment__form add-comment__font' action="submit" onSubmit={handleSubmit}>
+          <label  className='add-comment__label' htmlFor="comment">INSPIRED?</label>
+          <textarea className='add-comment__comment add-comment__font' type="text" name="comment"rows="12"/>
+          <button className='add-comment__submit add-comment__font' type="submit">MAP YOUR MIND</button>
         </form>
     </section>
   )

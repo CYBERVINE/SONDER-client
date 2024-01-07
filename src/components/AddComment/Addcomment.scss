@@ -1,3 +1,5 @@
+@import '../../styles/partials.scss/breakpoints';
+
 .add-comment{
   display: flex;
   flex-direction: column;
@@ -5,13 +7,21 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
+
+  &__font{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
   
   &__form{
+    border: 4px solid black;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #E4F1E4;
     padding: 1rem;
+    box-shadow: 30px 30px 30px black;
   
   }
   
@@ -26,25 +36,29 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 1rem 0;
-    min-width: 10rem;
-    border: none;
+    min-width: 25rem;
+    min-height: 15rem;
+    border-radius: 0.5rem;
     outline: none;
-    &:focus{
-      border: 2px solid gold;
 
-    }
   }
 
   &__submit{
-    border: 3px solid blueviolet;
+    border: 3px solid black;
     border-radius: 0.5rem;
-    background-color: blueviolet;
-    color: white;
+    background-color: gold;
+    color: black;
     padding: 0.25rem 0.5rem;
+    max-width: 20rem;
+
+    @include tablet{
+      font-size: 2rem;
+    }
 
     &:hover{
+      cursor: pointer;
       border: 3px solid gold;
-      background-color: purple;
+      background-color: whitesmoke;
     }
   }
 

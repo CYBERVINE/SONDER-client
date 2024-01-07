@@ -6,16 +6,16 @@ function Hero () {
     <>
     <div className="header">
 
-    <h1 className="header__line header__line--one">The World is the post</h1>
-    <h1 className="header__line header__line--two"><em>THIS</em> is the comments section.</h1>
-     <div className="hero__gif--container">
-    </div> 
-    <h1 className="header__line header__line--three">Map your inner monolouge</h1>
+    <h1 className="header__line header__line--one">THE WORLD IS THE POST</h1>
+    <h1 className="header__line header__line--two">AND THIS IS THE COMMENT SECTION</h1>
+    <h1 className="header__line--sonder">SONDER</h1>
+    <h1 className="header__line header__line--three">MAP YOUR INNER MONOLOGUE</h1>
     </div>
     <section className="enterance">
       <Link to={'/map'} className="enterance__anonymous enterance__card">
-        <p>Post Anonymously</p>
-        <p>Keep it local</p>
+        <p className="enterance__anonymous--text"> view map</p>
+        <p className="enterance__anonymous--text"> post anonymously</p>
+        {/* <p className="enterance__anonymous--text">keep it local</p> */}
         <div className="ellpses">
           <div className="ellpsis ellpsis__one"></div>
           <div className="ellpsis ellpsis__two"></div>
@@ -23,9 +23,9 @@ function Hero () {
         </div>
       </Link>
       <div className="enterance__known enterance__card">
-        <Link to={'/login'}>LOGIN</Link>
+        <Link className="enterance__known--text" to={'/login'}>LOGIN</Link>
         <p>or</p>
-        <Link to={'/signup'}>SIGN UP</Link>
+        <Link className="enterance__known--text" to={'/signup'}>SIGN UP</Link>
       </div>
     </section>
     </>
