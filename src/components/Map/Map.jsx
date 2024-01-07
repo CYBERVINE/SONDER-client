@@ -43,7 +43,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
             subdomains={['mt1','mt2','mt3']}
             />
             <MarkerClusterGroup
-             maxClusterRadius={23} 
+             maxClusterRadius={15} 
              >
             {posts && posts.map((comment) => {
               return (
@@ -71,15 +71,15 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
 
           <footer className="map__nav">
 
-            <section className="map__precision"> 
+            <section className={modalActive === "" ? "map__precision" : "map__nav--modal"}> 
                 <p className="map__precision-title" >Set Precison</p>
-            {(modalActive === "" ) &&
+
               <>
                 <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
                 <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
                 <button className="map__precision-button" onClick={()=>setRange(0.1)}>Low</button>
                 <p>{range}</p>
-              </>}
+              </>
             </section>
 
               {(sessionStorage.getItem("authToken") && !params.id) ?
@@ -90,11 +90,10 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                 }
           
 
-            <p onClick={toggleModal} 
-            // className={!params.id? `map__nav-button ${slide}` : "map__post map__post--shrink"}
-            className={`map__nav-button ${modalActive === "" ? "" : "map__nav-button--collapse"}`}
-            >
-                {modalActive === "" ? "make post" : "ERASE"}
+            <p 
+            onClick={toggleModal} 
+            className={modalActive === "" ? "map__nav-button" : "map__nav--modal"}>
+                 Make Post
             </p>
           </footer>
       </section>

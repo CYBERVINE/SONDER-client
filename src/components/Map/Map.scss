@@ -88,7 +88,11 @@
       padding: 0 2rem
     }
     @include desktop {
-      padding: 0 10rem 0 12.4rem
+      padding: 0 10rem 
+    }
+
+    &--modal{
+      display: none;
     }
 
   }
@@ -150,9 +154,7 @@
     
     &:hover{
       cursor: pointer;
-      color: white;
-      border: 4px solid gold
-
+      color: gold;
     }
 
     @include tablet {
@@ -168,6 +170,14 @@
     &--collapse{
       color:rgb(128, 128, 128, 0);
       padding: 0 .8rem;
+      color: grey;
+      
+      &:hover{
+        color: grey;
+        cursor: pointer;
+        border: 4px solid grey
+  
+      }
 
       @include tablet{
         padding: 0 3.3rem ;

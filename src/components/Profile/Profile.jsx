@@ -23,11 +23,11 @@ function Profile ({giveCoords, coords, decodedToken, getLoginId}) {
 
     const [profileFade, setprofileFade] = useState("")
     const navigate = useNavigate()
-    const latitude = 49.249814;
-    const longitude = -123.1217199;
+    // const latitude = 49.249814;
+    // const longitude = -123.1217199;
 
     const customIcon = new L.Icon({
-        iconUrl: '../../src/assets/images/giphy.gif',
+        iconUrl: '../../src/assets/images/sonderance.gif',
         iconSize: [40, 40], 
         iconAnchor: [16, 32], 
         popupAnchor: [0, -32], 
