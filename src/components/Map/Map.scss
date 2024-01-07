@@ -1,4 +1,228 @@
+@import '../../styles/partials.scss/breakpoints';
+
 .map{
   position: relative;
+
+  &__link{
+    font-weight: bold;
+    color: black;
+    font-size: 1.3rem;
+    padding: 1rem;
+    background-color: gold;
+    border: 1px solid gold;
+    border-radius: 0.25rem;
+
+    &:hover{
+      cursor: pointer;
+      background-color: black;
+      color: gold;
+      border: 1px solid white;
+    }
+
+    &:focus{
+      animation: button 1s;
+    }
+  }
+
+  &__marker{
+    border-radius: 100%;
+    border: 1px solid gold;
+    box-shadow: 0.75rem 0.75rem 0.75rem black;
+    
+    &:hover{
+      border: 5px solid gold;
+    }
+  }
+
+  &__popup{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 3.15rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightcyan;
+    color: #333333;
+    padding: 3rem 1rem 0.25rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    @include tablet{
+      width: 20rem;
+    }
+    @include desktop{
+      width: 25rem;
+    }
+  }
+
+  &__comment{
+    font-weight: 700;
+    margin: 0;
+
+    @include tablet{
+      font-size: 1.5rem;
+      padding: 0.5rem;
+
+    }
+    @include desktop{
+      font-size: 2rem;
+      padding: 1rem;
+
+    }
+  }
+
+  &__nav{
+    background-color: none;
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+    height: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 0;
+    width: 100vw;
+    padding: 0 2rem 0 0;
+
+    @include tablet {
+      padding: 0 2rem
+    }
+    @include desktop {
+      padding: 0 10rem 
+    }
+
+    &--modal{
+      display: none;
+    }
+
+  }
+
+  &__precision{
+    color: white;
+    bottom: 1rem;
+    background-color: black;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+    border: 2px solid grey;
+    width: 7rem;
+    font-size: 0.5rem;
+
+    @include tablet {
+      margin: 2rem;
+      font-size: 1.5rem;
+      width: 10rem;
+    }
+    &-title{
+      font-size: 1rem;
+
+      @include tablet{
+        font-size: 1.6rem;
+      }
+    }
+
+    &-button{
+      color: wheat;
+      background-color: green;
+      border: 1px solid gold;
+      width: 100%;
+      margin: 0.25rem;
+      font-size: 0.9rem;
+      @include tablet{
+        font-size: 1.5rem;
+      }
+
+      &:hover{
+        cursor: pointer;
+        color: white;
+      }
+    }
+  }
+
+ 
+
+  &__nav-button{
+    color: whitesmoke;
+    background-color: black;
+    border: 4px solid grey;
+    border-radius: 40%;
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    
+    &:hover{
+      cursor: pointer;
+      color: gold;
+    }
+
+    @include tablet {
+      margin: 2rem;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+    }
+    
+    @include desktop{
+      font-size: 2rem;
+    }
+    
+    &--collapse{
+      color:rgb(128, 128, 128, 0);
+      padding: 0 .8rem;
+      color: grey;
+      
+      &:hover{
+        color: grey;
+        cursor: pointer;
+        border: 4px solid grey
+  
+      }
+
+      @include tablet{
+        padding: 0 3.3rem ;
+
+      }
+    }
+    // &--shrink{
+    //   top:1.25rem;
+    //   animation: shrink 1s;
+    // }
+
+    // &--slide{
+    //   animation: slide 1400ms ease-out;
+    // }
+  }
+
 }
 
+// @keyframes shrink {
+//   100%{
+//     scale: 0;
+//   }
+// }
+
+// @keyframes slide {
+//   0%{
+//     bottom: 1.25rem;
+//   }
+//   70%{
+//     scale: (1);
+//   }
+//   100%{
+//     scale: (.8);
+//     bottom: 80%;
+//   }
+// }
+
+@keyframes button {
+  0%{
+    background-color: aqua;
+  }
+  50%{
+    background-color: aqua;
+  }
+  100%{
+    background-color: gold;
+  }
+}

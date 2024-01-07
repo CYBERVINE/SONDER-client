@@ -1,0 +1,26 @@
+@import '../../styles/partials.scss/breakpoints';
+
+.signup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  // background-color: black
+
+
+}
+
+.form__password{
+  border: 2px solid rgb(209, 35, 35);
+}
+
+.none{
+  display: none
+}
+
+.display{
+  font-size: 1rem;
+  display: block;
+  color: rgb(209, 35, 35);
+}

@@ -1,0 +1,17 @@
+@import '../../styles/partials.scss/breakpoints';
+
+.login{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__form{
+    @include tablet {
+      height: 60vh;
+      width: 30rem
+    }
+  }
+}

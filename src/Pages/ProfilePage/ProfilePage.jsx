@@ -1,8 +1,17 @@
 import Profile from '../../components/Profile/Profile'
-
-function ProfilePage ({giveCoords, coords}) {
+import Map from '../../components/Map/Map'
+import './ProfilePage.scss'
+function ProfilePage ({giveCoords, coords, decodedToken, getLoginId}) {
+  
   return (
-    <Profile giveCoords={giveCoords} coords={coords}/>
+    <section className='profile-page'>
+    <div className="profile-page__map">
+      <Map giveCoords={giveCoords} coords={coords}/>
+    </div>
+    <div className='profile-page__profile'>
+      <Profile  giveCoords={giveCoords} coords={coords}  decodedToken={decodedToken} getLoginId={getLoginId}/>
+    </div>
+    </section>
   )
 }
 
