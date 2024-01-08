@@ -1,5 +1,6 @@
 ###########################################
 
+
 sonder noun The feeling of sublime upon realizing that everyone, including strangers passing in the street, has a life as vivid and complex as one's own.
 The world inspires thoughts that often go unshared. SONDER is for anyone who chuckles at their own thoughts, or wonders about other local minds. 
 It is a place for people who want to promote their work and augment reality.
