@@ -7,15 +7,14 @@
   position: relative;
   min-height: 100vh;
   border-radius: 1rem;
-  width: 100%;
+  width: 99.4vw;
   background: linear-gradient( to bottom, #b0d8b0, #EEF4ED) ;
   
   &--fade{
     animation: fade 400ms;
   }
   
-  @include desktop {
-     width: 99.3vw;
+  @include tablet {
     padding: 1rem 5rem
   }
 
