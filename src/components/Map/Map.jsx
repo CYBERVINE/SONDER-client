@@ -8,13 +8,10 @@ import "leaflet/dist/leaflet.css";
 import './Map.scss'
 
 
-
 function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, decodedToken}) {
   const params = useParams()
   const mapRef = useRef(null);
   const [range, setRange] = useState(0.1)
-
-  // const slide = mapMove !== "" ? "map__nav-button--slide" : ""
 
     if(!params.id) { useEffect(()=>{getPosts()},[posts.length]),
                      useEffect(()=>{giveCoords()},[])
@@ -31,9 +28,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
     return ( 
       <>
     { coords.lat &&
-      <section className="map">
-
-    
+      <main className="map">
         <MapContainer className="leaf" center={[coords.lat, coords.lng]} zoom={15} zoomControl={false} ref={mapRef} 
         attributionControl={false}  style={{height: "100vh", width: "100vw"}}>
           <TileLayer
@@ -64,16 +59,11 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
               )
             })}
             </MarkerClusterGroup>
-
         </MapContainer>
-        
-      
 
-          <footer className="map__nav">
-
+          <footer className={params.id ? "map__nav--profile" : "map__nav"}>
             <section className={modalActive === "" ? "map__precision" : "map__nav--modal"}> 
                 <p className="map__precision-title" >Set Precison</p>
-
               <>
                 <button className="map__precision-button" onClick={()=>setRange(0.001)}>High</button>
                 <button className="map__precision-button" onClick={()=>setRange(0.01)}>Medium</button>
@@ -81,22 +71,19 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                 <p>{range}</p>
               </>
             </section>
-
               {(sessionStorage.getItem("authToken") && !params.id) ?
                   <p onClick={()=>toggleMain(decodedToken?.id)} className="map__nav-button">
                   View Profile
                   </p> :
                   <Link to={"/signup"} className="map__nav-button">Create Profile</Link>
                 }
-          
-
             <p 
             onClick={toggleModal} 
             className={modalActive === "" ? "map__nav-button" : "map__nav--modal"}>
-                 Make Post
+                Make Post
             </p>
-          </footer>
-      </section>
+            </footer>
+        </main>
         }
       </>
     );

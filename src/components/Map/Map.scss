@@ -6,11 +6,15 @@
   &__link{
     font-weight: bold;
     color: black;
-    font-size: 1.3rem;
     padding: 1rem;
     background-color: gold;
     border: 1px solid gold;
     border-radius: 0.25rem;
+    
+    @include tablet {
+      font-size: 1.3rem;
+
+    }
 
     &:hover{
       cursor: pointer;
@@ -36,7 +40,6 @@
 
   &__popup{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    line-height: 3.15rem;
     width: 10rem;
     display: flex;
     flex-direction: column;
@@ -48,6 +51,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
     @include tablet{
+      line-height: 3.15rem;
       width: 20rem;
     }
     @include desktop{
@@ -82,7 +86,7 @@
     align-items: flex-end;
     height: 0;
     width: 100vw;
-    padding: 0 2rem 0 0;
+    // padding: 0 2rem 0 0;
 
     @include tablet {
       padding: 0 2rem
@@ -92,6 +96,10 @@
     }
 
     &--modal{
+      display: none;
+    }
+
+    &--profile{
       display: none;
     }
 
@@ -147,19 +155,20 @@
     color: whitesmoke;
     background-color: black;
     border: 4px solid grey;
-    border-radius: 40%;
+    border-radius: 30%;
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.25rem;
 
     
     &:hover{
       cursor: pointer;
-      color: gold;
+      color: rgba(0, 255, 255, 0.8);
+      border: 4px solid rgba(255, 217, 0, 0.8);
     }
 
     @include tablet {
       margin: 2rem;
-      padding: 1.5rem;
+      padding: 0.65rem 1.25rem;
       font-size: 1.4rem;
     }
     
@@ -184,36 +193,11 @@
 
       }
     }
-    // &--shrink{
-    //   top:1.25rem;
-    //   animation: shrink 1s;
-    // }
 
-    // &--slide{
-    //   animation: slide 1400ms ease-out;
-    // }
   }
 
 }
 
-// @keyframes shrink {
-//   100%{
-//     scale: 0;
-//   }
-// }
-
-// @keyframes slide {
-//   0%{
-//     bottom: 1.25rem;
-//   }
-//   70%{
-//     scale: (1);
-//   }
-//   100%{
-//     scale: (.8);
-//     bottom: 80%;
-//   }
-// }
 
 @keyframes button {
   0%{
