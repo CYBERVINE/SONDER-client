@@ -1,17 +1,20 @@
 @import '../../styles/partials.scss/breakpoints';
 
+
+
+
 .profile{
   position: relative;
   min-height: 100vh;
-  width: 99.5vw;
   border-radius: 1rem;
+  width: 99.4vw;
   background: linear-gradient( to bottom, #b0d8b0, #EEF4ED) ;
-
+  
   &--fade{
     animation: fade 400ms;
   }
-
-  @include desktop {
+  
+  @include tablet {
     padding: 1rem 5rem
   }
 
@@ -79,23 +82,33 @@
     object-fit: cover;
     object-position: 25% 50%;
     @include tablet {
+
       height: 10rem;
       width: 10rem;
     }
   }
 
   &__info{
-    border-left: 5px solid grey;
     margin-left: 1rem;
+    @include tablet {
+      border-left: 5px solid grey;
+    }
   }
   
   &__map{
     margin: 1rem 1rem 0 1rem;
     border: 5px solid black;
-    border-radius: 6.2rem;
+    border-radius: 1.2rem;
+    @include tablet{
+      border-radius: 4.2rem;
+    }
+
+    @include desktop{
+      border-radius: 6.2rem;
+    }
   }
   
-  &__title{
+  &__feed-heading{
     text-align: center;
     font-size: 1.7rem;
     margin: 1rem 0 1.25rem 0;
@@ -103,7 +116,7 @@
       font-size: 2.2rem;
     }
   }
-
+  
   &__heading{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
@@ -120,7 +133,7 @@
 
   &__feed{
     margin: 1rem 0;
-    max-height: 25rem;
+    height: 30.1vh;
     overflow: auto;
     border-radius: 0.35rem;
     padding: 1rem;

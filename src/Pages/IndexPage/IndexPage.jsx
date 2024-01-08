@@ -14,8 +14,8 @@ function IndexPage () {
       </div>
       <footer className="index-page__footer">
         <p className="index-page__footer--text index-page__footer--quote"> <b>sonder</b> <i>noun</i> The feeling of sublime upon realizing that everyone, including strangers passing in the street, has a life as vivid and complex as one's own.</p>
-        <p className="index-page__footer--text index-page__footer--quote"> The world inspires thoughts that often go unshared. SONDER is for anyone who chuckles at their own thoughts, or wonders about other local minds. It is a place for people who want to promote their work and augment reality.</p>
-        <p className="index-page__footer--text index-page__footer--quote"> Map your thoughts and where you had them. Users get access to posts when they are in proximity. They can then check your profile and view any events, promos, or interests you have to share.</p>
+        <p className="index-page__footer--text index-page__footer--quote"> The world inspires thoughts that often go unshared. SONDER is for anyone who chuckles at their own thoughts, and wonders about other local minds. It is a place for people to promote and augment reality.</p>
+        <p className="index-page__footer--text index-page__footer--quote"> This is a place for you to map your thoughts and where you had them. Users get access to posts when they are in proximity, and then they can then check your profile and view any events, creations, or interests you have to share.</p>
         
         
         <div className="index-page__footer--links">  
