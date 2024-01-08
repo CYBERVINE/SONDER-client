@@ -42,7 +42,14 @@ li {
 }
 
 .leaflet-container {
-  border-radius: 6rem;
+  border-radius: 1rem;
+
+  @include tablet{
+    border-radius: 4rem;
+  }
+  @include desktop{
+    border-radius: 6rem;
+  }
 }
 
 .leaflet-popup-content-wrapper{

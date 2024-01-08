@@ -1,6 +1,8 @@
 @import '../../styles/partials.scss/breakpoints';
 
 .edit{
+
+  width: 100vw;
   background: linear-gradient( to top, #b0d8b0, #EEF4ED) ;
 
   @include tablet {
@@ -16,15 +18,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    // padding: 1rem;
-    // @include tablet{
-      border-left: 1rem dashed rgb(106, 121, 106);
-      border-right: 1rem dashed rgb(106, 121, 106);
-      margin: 0 8vw;
-      padding: 0 4vw;
-
-    // }
+    border-left: 1rem dashed rgb(106, 121, 106);
+    border-right: 1rem dashed rgb(106, 121, 106);
+    margin: 0 8vw;
+    padding: 0 4vw;
   }
   
   &__nav{
@@ -75,11 +72,11 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    margin-bottom: 1rem;
     border-radius: 1rem;
     
     
     @include tablet {
+      margin-bottom: 1rem;
       flex-direction: row;
       padding: 2rem;
       justify-content: space-around;
@@ -146,17 +143,21 @@
     margin: 0.25rem 0;
     background-color: white;
     border-radius: 0.5rem;
-    width: 100%;
     border: 3px solid black;
     resize: none;
     
     &--username{
       
-      width: 25rem;
+      width: 15rem;
+
+      @include tablet{
+        width: 15rem
+      }
     }
 
     &--description{
       height: 8rem;
+      width: 100%;
     }
 
     &:focus{
@@ -169,7 +170,7 @@
   &__textarea{
     resize: none;
     height: 6rem;
-    width: 100;
+    width: 100%;
     border: 3px solid black;
     font-size: 2rem;
 
@@ -192,9 +193,13 @@
     background-color: black;
     color:white;
     padding: 0.5rem 0.25rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+
+    @include tablet{
     width: 14rem;
     font-size: 1.5rem;
-    border-radius: 1rem;
+    }
 
     &:hover{
       cursor: pointer;

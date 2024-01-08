@@ -6,9 +6,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  // background-color: black
 
-
+  &__quote{
+    text-align: center;
+  }
 }
 
 .form__password{

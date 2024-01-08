@@ -115,11 +115,16 @@
 
   &__card{
     border: 1px solid black;
-    height: 10rem;
+    height: 8rem;
     width: 15rem;
+    margin-bottom: 0.5rem;
     padding: 1rem;
-    margin: 1rem;
     border-radius: 0.5rem;
+    
+    @include tablet{
+      margin: 1rem;
+      height: 10rem;
+    }
 
     @include desktop {
       height: 15rem;
@@ -134,7 +139,11 @@
     color: white;
 
     &--text{
-      margin: 0.75rem;
+
+      margin: 0.25rem 0 0.3rem 0.25rem;
+      @include tablet{
+        margin: 0.75rem;
+      }
     }
 
     &:hover{

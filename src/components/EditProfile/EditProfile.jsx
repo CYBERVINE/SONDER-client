@@ -74,9 +74,11 @@ function EditProfile ({getLoginId, decodedToken}) {
           </div>
           <div className='edit__profile--text'>
             <label className='edit__label' htmlFor="username">Edit Username here:</label>  
-        {userDetails.username && <input className='edit__input edit__input--username' type="text" name="username" id="username" defaultValue={`${userDetails.username}`} /> }            
+        {userDetails.username && 
+          <input className='edit__input edit__input--username' type="text" name="username" id="username" defaultValue={`${userDetails.username}`} /> }            
             <label className='edit__label' htmlFor="description">Update Bio here:</label>  
-        {userDetails.description && <textarea className='edit__input edit__input--description' type="text" name="description" id="description" defaultValue={`${userDetails.description}`} /> }            
+        {userDetails.description && 
+          <textarea className='edit__input edit__input--description' type="text" name="description" id="description" defaultValue={`${userDetails.description}`} /> }            
           </div>
         </section>
           <button className='edit__button' type="submit">Save Changes</button>
