@@ -134,7 +134,7 @@ function Profile ({giveCoords, coords, decodedToken, getLoginId}) {
                     {publicView ? promos.map(promo=>{
                         return (
                             <li  key={promo.id} className='profile__entry' >
-                            <a className="profile__entry--link" href={promo.link ? promo.link : "http://localhost:5173/map"}>
+                            <a className="profile__entry--link" href={promo.link ? promo.link : "http://localhost:5173/map"} target='_blank'>
                             {promo.promo}
                             </a>
                         {(decodedToken?.id === user.id) && <img 

@@ -224,12 +224,18 @@
 @keyframes link {
   0%{
     background-color: aqua;
+    color: aqua;
+  }
+
+  20%{
+    color: black;
   }
   50%{
     background-color: aqua;
   }
   100%{
     background-color: gold;
+    color: aqua;
   }
 }
 
