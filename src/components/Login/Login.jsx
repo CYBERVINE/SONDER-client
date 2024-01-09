@@ -42,9 +42,9 @@ function Login ({getLoginId}) {
     <section className="login">
     <form className='login__form form' action="submit" onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <input className={`form__input ${noEmail}`}type="text" name="email" placeholder='Email' required/>
-      <p className={noMatch === "" ? "none" : "display"}>No matching email and password found.</p>
-      <input className={`form__input ${noMatch}`} type="password" name="password" placeholder='Password' required/>
+      <input className="form__input" type="text" name="email" placeholder='Email' required/>
+      <p className={noMatch === "" ? "none" : "display"}>Invalid email password combination.</p>
+      <input className="form__input" type="password" name="password" placeholder='Password' required/>
       <button className='form__button' type="submit">Login</button>
       <div className='link-section'>
       <p className="link-section__description">Don't have an account? </p><Link className='link-section__link' to={'/signup'}> Sign Up</Link>
