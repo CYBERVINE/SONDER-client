@@ -30,7 +30,6 @@ function MapPage ({giveCoords, coords, getLoginId, decodedToken}) {
 
   async function getPosts () {  
     const {data} = await axios.get(`${URL}/posts`)
-    console.log(data)
     setPosts(data)
   }
   

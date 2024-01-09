@@ -32,6 +32,7 @@
     border-radius: 100%;
     border: 1px solid gold;
     box-shadow: 0.75rem 0.75rem 0.75rem black;
+
     
     &:hover{
       border: 5px solid gold;
@@ -51,7 +52,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
     @include tablet{
-      line-height: 3.15rem;
+      // line-height: 3.15rem;
       width: 20rem;
     }
     @include desktop{

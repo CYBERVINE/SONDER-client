@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom'
 import { useParams } from "react-router";
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import axios from "axios";
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import './Map.scss'
+const URL = import.meta.env.VITE_BASE_URL
 
 
 function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, decodedToken}) {
@@ -24,6 +26,17 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
       popupAnchor: [0, -32], 
       className: "map__marker"
     });
+
+    async function likeComment(id) {
+      try{
+        const comment = await axios.patch(`${URL}/posts/${id}`, {
+          post_id: id,
+          user_id: decodedToken.id
+        })
+      } catch (err) {
+        console.error(err)
+      }
+    }
   
     return ( 
       <>
@@ -41,18 +54,30 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
              maxClusterRadius={15} 
              >
             {posts && posts.map((comment) => {
+
+              const likes = comment.likes
+              console.log(likes)
               return (
                 <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon} className="map__marker">
+      
                     <Popup>
                         <section className="map__popup">
                           {(Math.abs(comment.lat - coords.lat) < range) && (Math.abs(comment.lng - coords.lng) < range) ? 
                           <>
                           <p className="map__comment">{comment.comment}</p> 
+                        {decodedToken.id && <button className="map__link" onClick={()=>likeComment(comment.id)}>BOOST SONDERANCE</button>}
                           <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THIS THOUGHT!</button>
                           </>
-                          : 
+                          :
+                          <>
                           <p
-                          className="map__comment">You're not close enough yet to see the thoughts this place inspired.</p>}
+                          className="map__comment">You're not close enough yet to see the thoughts this place inspired.
+                          </p>
+                          <p
+                          className="map__comment">This sonderance has been boosted by {comment.likes} minds.
+                          </p>
+                          </> 
+                          }
                       </section>
                     </Popup>
                 </Marker>
