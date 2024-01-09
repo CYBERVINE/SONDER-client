@@ -13,11 +13,9 @@ function IndexPage () {
       <div className="index-page__backing">
       </div>
       <footer className="index-page__footer">
-        <p className="index-page__footer--text index-page__footer--quote"> <b>sonder</b> <i>noun</i> The feeling of sublime upon realizing that everyone, including strangers passing in the street, has a life as vivid and complex as one's own.</p>
-        <p className="index-page__footer--text index-page__footer--quote"> The world inspires thoughts that often go unshared. SONDER is for anyone who chuckles at their own thoughts, and wonders about other local minds. It is a place for people to promote and augment reality.</p>
-        <p className="index-page__footer--text index-page__footer--quote"> This is a place for you to map your thoughts and where you had them. Users get access to posts when they are in proximity, and then they can then check your profile and view any events, creations, or interests you have to share.</p>
-        
-        
+        <p className="index-page__footer--text index-page__footer--quote"> <b>sonder</b> <i>noun</i> The feeling when you realize that everyone, including strangers passing in the street, has a life as vivid and complex as your own.</p>
+        <p className="index-page__footer--text index-page__footer--quote"> The world inspires thoughts that often go unshared. SONDER is for local creators, comedians, poets, activists, business owners, any one who wants to share thier nuggets of wisdom, and promote their good in the world.</p>
+        <p className="index-page__footer--text index-page__footer--quote"> SONDER is a personal journal, a promotional tool, and an avenue for empathy in your local community.</p>
         <div className="index-page__footer--links">  
         <p className="index-page__footer--text">&#169; KEVIN BYRNE </p>
         <a className="index-page__footer--text index-page__footer--link" href="https://linkedin.com/in/kevinbyrne09"> LinkedIn</a>
