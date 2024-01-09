@@ -90,7 +90,7 @@ li {
   &__input{
 
     margin: 1rem;
-    border: 2px solid;
+    border: 2px solid ;
     border-radius: 1rem;
     height: 2.5rem;
     padding: 0.5rem;
@@ -130,6 +130,20 @@ li {
     }
   }
 
+}
+
+.form__error{
+  border: 2px solid rgb(209, 35, 35);
+}
+
+.none{
+  display: none;
+}
+
+.display{
+  font-size: 1rem;
+  display: block;
+  color: rgb(209, 35, 35);
 }
 
 .link-section {
