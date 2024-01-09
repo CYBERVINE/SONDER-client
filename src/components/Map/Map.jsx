@@ -33,6 +33,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
           post_id: id,
           user_id: decodedToken.id
         })
+        getPosts()
       } catch (err) {
         console.error(err)
       }
@@ -65,8 +66,14 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                           {(Math.abs(comment.lat - coords.lat) < range) && (Math.abs(comment.lng - coords.lng) < range) ? 
                           <>
                           <p className="map__comment">{comment.comment}</p> 
-                        {decodedToken.id && <button className="map__link" onClick={()=>likeComment(comment.id)}>BOOST SONDERANCE</button>}
-                          <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THIS THOUGHT!</button>
+                        {decodedToken.id && <button className="map__popup-button map__popup-button--boost" onClick={()=>likeComment(comment.id)}>
+                          BOOST SIGNAL : {comment.likes}
+                          < img className="map__popup-button--icon" src="../../src/assets/images/boost.png" alt="" />
+                          </button>}
+                          <button className="map__popup-button map__popup-button--link" onClick={()=>toggleMain(comment.user_id)}>
+                            FOLLOW SONDERANCE
+                          < img className="map__popup-button--icon" src="../../src/assets/images/thought.png" alt="" />
+                            </button>
                           </>
                           :
                           <>

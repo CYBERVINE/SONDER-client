@@ -3,29 +3,43 @@
 .map{
   position: relative;
 
-  &__link{
+  &__popup-button{
+    display: flex;
     font-weight: bold;
     color: black;
     padding: 1rem;
     background-color: gold;
-    border: 1px solid gold;
+    border: 1px solid black;
     border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+    position: relative;
     
     @include tablet {
       font-size: 1.3rem;
-
+      
     }
 
     &:hover{
       cursor: pointer;
       background-color: black;
-      color: gold;
-      border: 1px solid white;
+      color: aqua;
+    }
+    
+
+    &--link{
+
+      &:focus{
+        animation: link 1s;
+      }
     }
 
-    &:focus{
-      animation: button 1s;
+    &--icon{
+      position: absolute;
+      height: 2rem;
+      top: 0.75rem;
+      right: 1.5rem
     }
+
   }
 
   &__marker{
@@ -52,7 +66,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
     @include tablet{
-      // line-height: 3.15rem;
+      line-height: 3.15rem;
       width: 20rem;
     }
     @include desktop{
@@ -87,7 +101,7 @@
     align-items: flex-end;
     height: 0;
     width: 100vw;
-    // padding: 0 2rem 0 0;
+
 
     @include tablet {
       padding: 0 2rem
@@ -200,7 +214,7 @@
 }
 
 
-@keyframes button {
+@keyframes link {
   0%{
     background-color: aqua;
   }
@@ -211,3 +225,5 @@
     background-color: gold;
   }
 }
+
+
