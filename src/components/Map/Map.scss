@@ -29,6 +29,10 @@
       color: aqua;
     }
     
+    &--signup{
+      line-height: 1rem;
+    }
+
 
     &--link{
 
@@ -45,7 +49,7 @@
 
       @include tablet{
         height: 2rem;
-        top: 0.75rem;
+        top: 0.6rem;
         right: 1.5rem
 
       }
@@ -186,6 +190,7 @@
         cursor: pointer;
         color: white;
       }
+
     }
   }
 
