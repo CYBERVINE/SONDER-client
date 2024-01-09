@@ -5,23 +5,13 @@ import './login.scss'
 
 function Login ({getLoginId}) {
   const URL = import.meta.env.VITE_BASE_URL
-  const [email, setemail] = useState("")
-  const [password, setPassword] = useState("")
+  const [noMatch, setNoMatch] = useState("")
+  const [noEmail, setNoEmail] = useState("")
   const navigate = useNavigate()
   function handleSubmit (e) {
     e.preventDefault()
     async function validateUser (e) {
       const form = e.target
-
-      if( form.email.value === "" && form.password.value === ""){
-        setemail("display")
-        setPassword("display")
-      } else if (form.email.value === ""){
-        setemail("display")
-      } else if (form.password.value === ""){
-        setPassword("display")
-      }
-
       try {
         const response = await axios.post(`${URL}/login`,
         {
@@ -30,15 +20,21 @@ function Login ({getLoginId}) {
         }
         )
         sessionStorage.authToken = response.data.token
-        console.log(typeof sessionStorage.authToken)
         if (sessionStorage.authToken && sessionStorage.authToken !== "undefined"){
           getLoginId()
           navigate('/map')
         }
+
+        console.log(response)
       } catch (err) {
-        console.error(err)
+        console.error(err.response)
+        if (err.response.status === 404) {
+          setNoEmail("form__error")
+        }
+        if (err.response.status === 403) {
+          setNoMatch("form__error")
+        }
       }
-      
     }
     validateUser(e)
   }
@@ -46,8 +42,9 @@ function Login ({getLoginId}) {
     <section className="login">
     <form className='login__form form' action="submit" onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <input className='form__input'type="text" name="email" placeholder='Email' required/>
-      <input className='form__input' type="password" name="password" placeholder='Password' required/>
+      <input className="form__input" type="text" name="email" placeholder='Email' required/>
+      <p className={noMatch === "" ? "none" : "display"}>Invalid email password combination.</p>
+      <input className="form__input" type="password" name="password" placeholder='Password' required/>
       <button className='form__button' type="submit">Login</button>
       <div className='link-section'>
       <p className="link-section__description">Don't have an account? </p><Link className='link-section__link' to={'/signup'}> Sign Up</Link>

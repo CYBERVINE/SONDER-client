@@ -1,8 +1,5 @@
 @import '../../styles/partials.scss/breakpoints';
 
-
-
-
 .profile{
   position: relative;
   min-height: 100vh;
@@ -153,6 +150,7 @@
     align-items: center;
     font-size: 2rem;
     margin: 0.5rem;
+    word-wrap: break-word;
   
       font-weight: 500; 
 
@@ -211,17 +209,17 @@
   &__return{
     background-color: black;
     color: #EEF4ED;
-    padding: 0.5rem;
-
+    padding: 0 0.5rem 0.5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    
     &:hover{
       cursor: pointer;
       color: gold;
     }
     
-
     @include tablet {
       font-size: 1.5rem;
-      padding: 0.75rem;
     }
   }
 }

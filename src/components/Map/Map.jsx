@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom'
 import { useParams } from "react-router";
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import axios from "axios";
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import './Map.scss'
+const URL = import.meta.env.VITE_BASE_URL
 
 
 function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, modalActive, decodedToken}) {
@@ -24,6 +26,18 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
       popupAnchor: [0, -32], 
       className: "map__marker"
     });
+
+    async function likeComment(id) {
+      try{
+        const comment = await axios.patch(`${URL}/posts/${id}`, {
+          post_id: id,
+          user_id: decodedToken.id
+        })
+        getPosts()
+      } catch (err) {
+        console.error(err)
+      }
+    }
   
     return ( 
       <>
@@ -41,18 +55,41 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
              maxClusterRadius={15} 
              >
             {posts && posts.map((comment) => {
+
+              const likes = comment.likes
+              console.log(likes)
               return (
                 <Marker key={comment.id} position={[comment.lat, comment.lng]} icon={customIcon} className="map__marker">
+      
                     <Popup>
                         <section className="map__popup">
                           {(Math.abs(comment.lat - coords.lat) < range) && (Math.abs(comment.lng - coords.lng) < range) ? 
                           <>
                           <p className="map__comment">{comment.comment}</p> 
-                          <button className="map__link" onClick={()=>toggleMain(comment.user_id)}>FOLLOW THIS THOUGHT!</button>
+                        {decodedToken.id ? <button className="map__popup-button map__popup-button--boost" onClick={()=>likeComment(comment.id)}>
+                          BOOST SIGNAL : {comment.likes}
+                          < img className="map__popup-button--icon" src="../../src/assets/images/boost.png" alt="" />
+                          </button> : 
+                          <Link className="map__popup-button map__popup-button--signup" to={'/signup'}>
+                          Register account to boost.
+                          < img className="map__popup-button--icon" src="../../src/assets/images/boost.png" alt="" />
+                          </Link>
+                          }
+                          <button className="map__popup-button map__popup-button--link" onClick={()=>toggleMain(comment.user_id)}>
+                            FOLLOW SONDERANCE
+                          < img className="map__popup-button--icon" src="../../src/assets/images/thought.png" alt="" />
+                            </button>
                           </>
-                          : 
+                          :
+                          <>
                           <p
-                          className="map__comment">You're not close enough yet to see the thoughts this place inspired.</p>}
+                          className="map__comment map__comment--hidden">
+                            You're not close enough, yet. This sonderance is boosted 
+                            < img className="map__hidden-icon" src="../../src/assets/images/boost.png" alt="" />
+                            {comment.likes} times.
+                          </p>
+                          </> 
+                          }
                       </section>
                     </Popup>
                 </Marker>

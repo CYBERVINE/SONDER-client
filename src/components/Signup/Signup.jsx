@@ -7,16 +7,19 @@ function Signup () {
 
   const navigate = useNavigate()
   const [password, setPassword] = useState("")
+  const [emailInUse, setEmailInUse] = useState("")
 
   function handleSubmit (e) {
     e.preventDefault()
     async function makeUser (e) {
       const form = e.target
+      setEmailInUse("")
+      setPassword("")
 
         if ((form.password.value === form.confirmPassword.value) && form.password.value.length > 4){
 
           try{
-            const {data} = await axios.post('http://localhost:8080/users', 
+            const response = await axios.post('http://localhost:8080/users', 
             {
               username: form.username.value,
               email: form.email.value,
@@ -25,13 +28,18 @@ function Signup () {
               avatar: "http://localhost:8080/avatars/anonymous.png",
               description: "New to Sonder"
             })
-            console.dir(data)
           } catch (err) {
             console.error(err)
+            
+            if (err.response.data === "That email is already in use"){
+              console.log(err.response.data)
+              setEmailInUse("form__error")
+              return
+            }
           }
           navigate('/login')
         } else {
-          setPassword("form__password")
+          setPassword("form__error")
         }
       }
       makeUser(e)
@@ -42,7 +50,8 @@ function Signup () {
         <h2>Signup</h2>
         <input className='form__input'type="text" name="username" placeholder='Username' required/>
         <input className='form__input'type="text" name="city" placeholder='Home City'  required/>
-        <input className='form__input' type="email" name="email" placeholder='Email'  required/>
+        <input className={`form__input ${emailInUse}`} type="email" name="email" placeholder='Email'  required/>
+        <p className={emailInUse === "" ? "none" : "display"}>This email is already in use.</p>
         <input className={`form__input ${password}`} type="password" name="password" placeholder='Password'/>
         <p className={password === "" ? "none" : "display"}>Passwords must match an be at least five letters long</p>
         <input className={`form__input ${password}`} type="password" name="confirmPassword" placeholder='Confirm Password' />
