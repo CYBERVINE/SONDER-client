@@ -14,7 +14,11 @@
     margin-bottom: 0.25rem;
     position: relative;
     
-    @include tablet {
+    @include tablet{
+      font-size: 1rem;
+    }
+
+    @include desktop {
       font-size: 1.3rem;
       
     }
@@ -35,9 +39,16 @@
 
     &--icon{
       position: absolute;
-      height: 2rem;
-      top: 0.75rem;
-      right: 1.5rem
+      height: 1.25rem;
+      top: 0.5rem;
+      right: 0.5rem;
+
+      @include tablet{
+        height: 2rem;
+        top: 0.75rem;
+        right: 1.5rem
+
+      }
     }
 
   }
@@ -51,6 +62,11 @@
     &:hover{
       border: 5px solid gold;
     }
+  }
+
+  &__hidden-icon{
+    width: 2rem;
+    margin: 0 0.5rem;
   }
 
   &__popup{
@@ -77,6 +93,9 @@
   &__comment{
     font-weight: 700;
     margin: 0;
+    border-bottom: 4px solid;
+    border-top: 4px solid;
+    word-wrap: break-word;
 
     @include tablet{
       font-size: 1.5rem;
@@ -92,7 +111,6 @@
     &--hidden{
       text-align: center;
       color: white;
-      background-color: rgb(19, 17, 17);
       background-color: #333333;
     }
   }

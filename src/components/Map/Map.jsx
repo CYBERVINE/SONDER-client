@@ -78,7 +78,11 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                           :
                           <>
                           <p
-                          className="map__comment map__comment--hidden">Not close enough. Boosted {comment.likes} times.
+                          className="map__comment map__comment--hidden">
+                            You're not close enough, yet. Boosted 
+              
+                            < img className="map__hidden-icon" src="../../src/assets/images/boost.png" alt="" />
+                            {comment.likes} times.
                           </p>
                           </> 
                           }
