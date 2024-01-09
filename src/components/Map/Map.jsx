@@ -78,7 +78,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                           :
                           <>
                           <p
-                          className="map__comment map__comment--hidden">Not close enough, yet. Sonderance boosted {comment.likes} times.
+                          className="map__comment map__comment--hidden">Not close enough. Boosted {comment.likes} times.
                           </p>
                           </> 
                           }

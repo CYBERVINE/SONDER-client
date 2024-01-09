@@ -110,6 +110,14 @@ function Profile ({giveCoords, coords, decodedToken, getLoginId}) {
                             )})}
                     </MapContainer>}
                 </div>
+                    <div 
+                    className='profile__return-container'>
+                    <div className='profile__return' 
+                    onClick={backToReality}>
+                        Back To Reality
+                    </div>
+                </div>
+
                     {publicView ? 
                         <h2 className='profile__feed-heading'>| EVENTS | OFFERS | INTERESTS |</h2> 
                         : 
@@ -142,13 +150,7 @@ function Profile ({giveCoords, coords, decodedToken, getLoginId}) {
                                 </li>
                     })}
                 </ul>
-                    <div 
-                    className='profile__return-container'>
-                    <div className='profile__return' 
-                    onClick={backToReality}>
-                        Back To Reality
-                    </div>
-                </div>
+
             </main>
     )
 }
