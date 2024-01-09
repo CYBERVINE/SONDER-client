@@ -78,10 +78,7 @@ function Map ({getPosts, posts, giveCoords, coords, toggleMain, toggleModal, mod
                           :
                           <>
                           <p
-                          className="map__comment">You're not close enough yet to see the thoughts this place inspired.
-                          </p>
-                          <p
-                          className="map__comment">This sonderance has been boosted by {comment.likes} minds.
+                          className="map__comment map__comment--hidden">Not close enough, yet. Sonderance boosted {comment.likes} times.
                           </p>
                           </> 
                           }

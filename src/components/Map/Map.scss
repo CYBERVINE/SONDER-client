@@ -88,6 +88,12 @@
       padding: 1rem;
 
     }
+
+    &--hidden{
+      text-align: center;
+      color: white;
+      background-color: rgb(19, 17, 17);
+    }
   }
 
   &__nav{
