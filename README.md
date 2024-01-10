@@ -7,4 +7,6 @@ It is a place for people who want to promote their work and augment reality.
 Map your thoughts and where you had them. Users get access to posts when they are in proximity.
 They can then check your profile and view any events, promos, or interests you have to share.
 
+deploy
+
 ############################################
